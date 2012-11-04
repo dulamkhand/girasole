@@ -1,0 +1,69 @@
+*, html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,
+b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,
+hgroup,menu,nav,section,summary,time,mark,audio,a {font-family:Georgia,"Times New Roman",Times,serif;line-height:22px;font-size:12px;color:#333;margin:0;padding:0;border:0;outline:0;background:none;text-rendering:optimizelegibility;position:relative;font-weight:normal;text-align:left;}
+
+/* LAYOUT */
+body {background:#fff;}
+.wrapper{margin:0 auto;width:950px;border:0px solid red;background:transparent;}
+
+.sideleft {margin:0;padding:0;float:left;width:620px;border:0px solid red;background:#fff;}
+.sideright {float:right;width:300px;margin:0;padding:0;border:0px solid red;background:#fff;}
+
+.sidemiddle {background:#fff;margin:0;float:left;width:700px;padding:15px;}
+
+#wrapper-border {background:transparent;margin:0px;padding:0;z-index:0;}
+
+
+/* GLOBAL */
+a {-moz-text-blink:none;-moz-text-decoration-color:-moz-use-text-color;-moz-text-decoration-line: none;-moz-text-decoration-style: solid;color:#000;}
+a img {-moz-border:none;border:0;}
+
+h1, h2, h3, h4, h5, h6 {font-size: 100%;}
+h2{color:#E77365;font-size:12px;font-family:'Great Vibes',cursive;margin:0;padding:0;}
+
+cufon {height:17px!important;}
+
+table{padding:0;margin:0;}
+table tr{padding:0;margin:0;}
+table tr td{padding:0;margin:0;}
+
+.clear {clear:both;height: 0;}
+.left {float:left;}
+.right {float:right;}
+.align-center {text-align:center;}
+.align-justify {text-align:justify;}
+.align-left {text-align:left;}
+.align-right {text-align:right;}
+
+
+.bigtitle{display:block;text-transform:uppercase;font-weight:bold;margin:0 0 10px 0;color:#fff;font-size:20px;}
+.midtitle{display:block;text-transform:uppercase;font-weight:bold;margin:0 0 10px 0;color:#fff;font-size:16px;}
+.subtitle{font-weight:bold;color:#000;margin:0;}
+
+
+/* LIST */
+.list1 .entry-box {margin:0 0 7px 0;padding:10px;background: transparent url("http://media.vogue.com/image/dotted_line.gif?v=1.01") 0 bottom repeat-x;}
+.list1 .entry-box:hover {background:#FFF777;}
+.list1 .entry-box.hover {background:#FFF777;}
+
+.comment-box{background:none;}
+.comment-box:hover{background:#FFFCCC;}
+
+
+.title {color:#000;margin:0;text-transform:uppercase;font-weight:bold;}
+.category {font-style:italic;text-transform:uppercase;letter-spacing:-1px;color:#E94430;margin:0;font-size:11px;}
+.timestamp {color:#E94430;font-style:italic;font-size:11px;}
+.source {color:#E94430;font-style:italic;font-size:11px;}
+
+.link10 {color:#E94430;font-style:italic;font-size:10px;}
+.link11 {color:#E94430;font-style:italic;font-size:11px;}
+.link12 {color:#E94430;font-style:italic;font-size:12px;}
+.link14 {color:#E94430;font-style:italic;font-size:14px;}
+
+
+/*
+pink - #E94430
+pink light - E77365, F7B2AA
+yellow - #FFF777
+yellow light - #FFFCCC
+*/

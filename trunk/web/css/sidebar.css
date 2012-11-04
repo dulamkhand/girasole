@@ -1,0 +1,44 @@
+.adContainer {position: relative;}
+.adParent {left: 0;position: absolute;top: 0;z-index: 100;}
+.ad_module {text-align: center;}
+.side_module {margin: 0 0 40px 0;}
+.side_module h3 {border:7px solid #ED1C24;margin: 0 0 20px 0;padding:0 0 2px 0;text-indent: -9999px;}
+.side_module .title {font-family: "Times New Roman",Times,serif;font-size: 18px;line-height: 18px;}
+
+
+#subscribe_module {background:transparent url("http://media.vogue.com/image/diag_graylines.gif?v=1.01?v=2.2.80");padding: 8px;}
+#subscribe_inner {background: #fff none;padding: 5px 10px;text-align: left;}
+#subscribe_inner p {border: 1px dotted #999;padding: 3px 0;}
+#subscribe_inner a {color: #333333;font-family: Arial,Helvetica,sans-serif;font-size: 10px;font-weight: bold;line-height: 15px;text-transform: uppercase;}
+
+
+#most_popular_module_side {border:3px double #ccc;}
+#most_popular_module_side h3 {background:transparent url("http://media.vogue.com/image/modules/heading_most_popular_side.gif?v=1.01") center bottom no-repeat;border-color: #000000;height: 18px;padding: 0;}
+#most_popular_module_side .featured {background: transparent none;padding: 0 0 20px 0;}
+#most_popular_module_side .featured .title {font-size: 18px;line-height: 18px;}
+#most_popular_module_side .entry {background: transparent url("http://media.vogue.com/image/dotted_line.gif?v=1.01")  0 top repeat-x;padding:20px 0 20px 0;text-align: center;}
+#most_popular_module_side .entry .title {color: #000000;font-family: "Times New Roman",Times,serif;font-size: 14px;line-height: 16px;}
+#most_popular_module_side .entry .category {margin: 0 0 5px 0;}
+
+
+.voguepedia_side_module_wrapper {background: url("/image/voguepedia-module-side-shadow.png?v=1.01") right center repeat-y ;margin: 10px 0;width: 187px;}
+.voguepedia_side_module_container {background-image: url("/image/crosshatched-background.png?v=1.01");padding: 10px;width: 160px;}
+.voguepedia_side_module_header {background-color: #FFFFFF;}
+.voguepedia_side_module {background-color: #FFFFFF;}
+.voguepedia_side_module img {margin-bottom: 15px;width: 160px;}
+.voguepedia_side_module_title {font-size: 135%;margin-bottom: 5px;}
+.voguepedia_side_module_description {font-size: 85%;margin-bottom: 5px;}
+.voguepedia_side_module_learnmore {color: #ED1B24;font-family: sans-serif;font-size: 85%;font-weight: bold;margin:15px 0 10px 0;padding:15px;}
+
+#signup_module {background: transparent url("http://media.vogue.com/image/modules/signup-background.jpg?v=1.01") left 0 no-repeat ;height: 165px;}
+#signup_module h3 {border: 0;margin: 0 0 8px 0;text-indent:-9999px;}
+#signup_module .endlink {-moz-border: none;border: 0;font-family: Georgia,"Times New Roman",Times,serif;font-style: italic;font-weight: normal;margin-top:120px;padding: 0;text-align: left;}
+.endlink {font-family: Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;padding: 10px 0 0 0;text-align: center;text-transform: uppercase;}
+.endlink table {display: inline-block;}
+
+#follow_module h3 {background: transparent url("http://media.vogue.com/image/modules/heading_follow.gif?v=1.01")  0 0  no-repeat;height: 21px;}
+#follow_module a {background: transparent url("http://media.vogue.com/image/modules/follow_sprite.gif?v=1.01") 0 0 no-repeat;display: block;float: left;height: 81px;text-indent: -9999px;width: 90px;}
+#follow_module a.fb {background-position: -90px 0;}
+
+
+

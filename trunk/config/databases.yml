@@ -1,0 +1,14 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/07-Databases
+
+all:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:      
+      #dsn:      mysql:host=202.179.8.29;dbname=handaa
+      #username: handaa
+      #password: uuree
+      
+      dsn:      mysql:host=localhost;dbname=girasole
+      username: root
+      password: 

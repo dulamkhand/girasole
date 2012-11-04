@@ -1,0 +1,39 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+# CAPTCHA
+captcha:
+  url:        /captcha
+  param:      { module: sfCryptoCaptcha , action: captcha }
+captcha_refresh:
+  url:        /captcha/:random
+  param:      { module: sfCryptoCaptcha , action: captcha }
+captcha_demo:
+  url:        /captcha_demo
+  param:      { module: sfCryptoCaptcha , action: captchaDemo }
+
+
+# MAIN
+default:
+  url:   /default
+  param: { module: main, action: default }
+  
+
+contact:
+  url:   /contact
+  param: { module: main, action: contact }
+  
+
+# default rules
+homepage:
+  url:   /
+  param: { module: main, action: home }
+
+# generic rules
+# please, remove them by adding more specific rules
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*
