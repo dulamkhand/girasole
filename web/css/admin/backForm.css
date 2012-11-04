@@ -1,0 +1,85 @@
+/*********************
+		Forms
+*********************/
+form{
+	padding:0px;
+	margin:0px;
+}
+fieldset {
+	display:block;
+	padding:15px 5px;
+	line-height:20px;
+	margin-bottom:20px;
+}
+legend {
+	font-size:12px;
+	font-weight:bold;
+	padding:3px 10px;
+}
+label {
+  display:block;
+	/* clear:left;
+	float:left; */
+	width:100px;
+	text-align:right;
+	padding-right:10px;
+	margin-bottom:5px;
+	font-weight:bold;
+}
+
+label.clean {
+  display:block;
+	width:250px;
+	text-align:left;
+}
+
+input{
+	padding:2px;
+	margin-bottom:5px;
+}
+select{
+	padding:2px;
+}
+textarea {
+	padding:5px;
+	margin-bottom:5px;
+	width: 500px;
+	height: 100px;
+	overflow:auto;
+}
+ option {
+	background:#FFF;
+}
+ optgroup option {
+
+}
+
+.button, .buttonSmall, .buttonBig {
+	cursor:pointer;
+	float:left;
+	font-weight:bold;
+	margin-left:5px;
+	padding:8px 15px;
+}
+
+.buttonSmall {
+  padding:1px 10px;
+}
+
+.buttonBig {
+  padding:10px 20px;
+}
+
+.description{
+  color: #777;
+}
+
+#help ul{list-style:none;line-height: 25px;margin-left: 10px;}
+#help li{padding: 5px;}
+.help {background:url(../../images/icons/question.jpg) no-repeat;border:1px solid #aaa;padding-left:20px;float:right;width:150px;}
+
+
+ul.error_list, ul.radio_list {list-style-type:none;}
+ul.error_list li, ul.radio_list li {color:red; font-size:10px; font-weight:normal;}
+ul.checkbox_list {list-style:none;border:1px dotted gray;width:215px;padding:3px;}
+ul.checkbox_list li label {margin:-22px 0 0 16px;text-align:left;}

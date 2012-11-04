@@ -1,0 +1,45 @@
+#caption{width:460px;float:left;margin:0;padding:5px;}
+.caption p {color:#fff!important;}
+
+/* controls */
+#controls{width:135px;float:right;margin:5px;padding:0;}
+#controls a{color:#FF1111;font-style:italic;font-size:11px;line-height:20px;}
+#controls .ss-controls{width:120px;text-align:center;}
+#controls .nav-controls{width:120px;}
+#controls a.next{float:right;}
+#controls a.prev{float:left;}
+
+
+/* slideshow */
+#slideshow{width:470px;height:500px;float:left;margin:0 5px 0 0;overflow:hidden;}
+div.slideshow-container {position: relative;clear: both;}
+div.loader {position: absolute;top: 0;left: 0;background-image: url('../images/icons/loader.gif');background-repeat: no-repeat;background-position: center;}
+div.slideshow span.image-wrapper {display: block;position: absolute;top: 0;left: 0;}
+div.slideshow img {vertical-align: middle;border: 1px solid #ccc;}
+
+
+/* thumbs */
+#thumbs{width:145px;height:500px;float:left;overflow-y:scroll;overflow-x:hidden;}
+ul.thumbs {	clear: both;	margin: 0;	padding: 0;}
+ul.thumbs li {	float: left;	padding: 0;	margin:5px 0 0 0;	list-style: none;}
+a.thumb {	padding:0px;	display: block;	border:0px solid #ccc;}
+ul.thumbs li.selected a.thumb {	background: #000;}
+a.thumb:focus {	outline: none;}
+ul.thumbs img {	border: none;	display: block;}
+
+
+
+/* pagination */
+div.pagination {	clear: both;}
+div.navigation div.top {	margin-bottom: 12px;	height: 11px;}
+div.navigation div.bottom {	margin-top: 12px;}
+div.pagination a, div.pagination span.current, div.pagination span.ellipsis {
+	display: block;
+	float: left;
+	margin-right: 2px;
+	padding: 4px 7px 2px 7px;
+	border: 1px solid #ccc;
+}
+div.pagination a:hover {background-color: #eee;text-decoration: none;}
+div.pagination span.current {	font-weight: bold;	background-color: #000;	border-color: #000;	color: #fff;}
+div.pagination span.ellipsis {	border: none;	padding: 5px 0 3px 2px;}

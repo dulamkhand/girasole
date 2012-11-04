@@ -1,0 +1,322 @@
+Nov 04 11:00:31 symfony [info] {sfPatternRouting} Connect sfRoute "captcha" (/captcha)
+Nov 04 11:00:31 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_refresh" (/captcha/:random)
+Nov 04 11:00:31 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_demo" (/captcha_demo)
+Nov 04 11:00:31 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'main',  'action' => 'home',)
+Nov 04 11:00:31 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 04 11:00:31 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 04 11:00:31 symfony [info] {mainActions} Call "mainActions->executeHome()"
+Nov 04 11:00:31 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Nov 04 11:00:31 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.category_id AS c__category_id, c.category_name AS c__category_name, c.title AS c__title, c.cover AS c__cover, c.intro AS c__intro, c.body AS c__body, c.source AS c__source, c.created_at AS c__created_at FROM content c ORDER BY c.sort DESC, c.created_at ASC LIMIT 10 - ()
+Nov 04 11:00:31 symfony [info] {mainActions} Change template to "CURRENT/list1"
+Nov 04 11:00:31 symfony [info] {sfPHPView} Render "C:\wamp\www\girasole\apps\front\modules/main/templates/list1Success.php"
+Nov 04 11:00:31 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_share.php"
+Nov 04 11:00:31 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_share.php"
+Nov 04 11:00:31 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_share.php"
+Nov 04 11:00:31 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_share.php"
+Nov 04 11:00:31 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_share.php"
+Nov 04 11:00:31 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_share.php"
+Nov 04 11:00:31 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_share.php"
+Nov 04 11:00:31 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_share.php"
+Nov 04 11:00:31 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_share.php"
+Nov 04 11:00:31 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_share.php"
+Nov 04 11:00:31 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_sideright.php"
+Nov 04 11:00:31 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_aphorism.php"
+Nov 04 11:00:31 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.text AS a__text, a.source AS a__source, a.sort AS a__sort, a.created_at AS a__created_at FROM aphorism a WHERE (a.id <> ?) ORDER BY a.sort DESC, a.created_at ASC LIMIT 10 - (0)
+Nov 04 11:00:31 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_reks.php"
+Nov 04 11:00:31 symfony [info] {Doctrine_Connection_Statement} execute : SELECT b.id AS b__id, b.path AS b__path, b.ext AS b__ext, b.link AS b__link, b.target AS b__target, b.position AS b__position, b.start_date AS b__start_date, b.end_date AS b__end_date, b.sort AS b__sort, b.is_active AS b__is_active, b.created_at AS b__created_at FROM banner b WHERE (b.id <> ? AND position = ?) ORDER BY b.sort DESC, b.created_at ASC LIMIT 10 - (0, sideright)
+Nov 04 11:00:31 symfony [info] {sfPHPView} Decorate content with "C:\wamp\www\girasole\apps\front\templates/layout.php"
+Nov 04 11:00:31 symfony [info] {sfPHPView} Render "C:\wamp\www\girasole\apps\front\templates/layout.php"
+Nov 04 11:00:31 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\templates/_header.php"
+Nov 04 11:00:31 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_rek_header.php"
+Nov 04 11:00:31 symfony [info] {Doctrine_Connection_Statement} execute : SELECT b.id AS b__id, b.path AS b__path, b.ext AS b__ext, b.link AS b__link, b.target AS b__target, b.position AS b__position, b.start_date AS b__start_date, b.end_date AS b__end_date, b.sort AS b__sort, b.is_active AS b__is_active, b.created_at AS b__created_at FROM banner b WHERE (b.id <> ? AND position = ?) ORDER BY b.sort DESC, b.created_at ASC LIMIT 10 - (0, header)
+Nov 04 11:00:31 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 04 11:00:31 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 04 11:00:31 symfony [info] {sfWebDebugLogger} Configuration 980.02 ms (9)
+Nov 04 11:00:31 symfony [info] {sfWebDebugLogger} Factories 231.78 ms (1)
+Nov 04 11:00:31 symfony [info] {sfWebDebugLogger} Action "main/home" 50.60 ms (1)
+Nov 04 11:00:31 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (5)
+Nov 04 11:00:31 symfony [info] {sfWebDebugLogger} View "Success" for "main/home" 138.57 ms (1)
+Nov 04 11:00:31 symfony [info] {sfWebDebugLogger} Partial "partial/_share" 4.52 ms (10)
+Nov 04 11:00:31 symfony [info] {sfWebDebugLogger} Partial "partial/_sideright" 37.38 ms (1)
+Nov 04 11:00:31 symfony [info] {sfWebDebugLogger} Partial "partial/_aphorism" 22.33 ms (1)
+Nov 04 11:00:31 symfony [info] {sfWebDebugLogger} Partial "partial/_reks" 13.45 ms (1)
+Nov 04 11:00:31 symfony [info] {sfWebDebugLogger} Partial "global/_header" 2.11 ms (1)
+Nov 04 11:00:31 symfony [info] {sfWebDebugLogger} Partial "partial/_rek_header" 9.97 ms (1)
+Nov 04 11:00:31 symfony [info] {sfWebResponse} Send content (72258 o)
+Nov 04 11:00:31 symfony [info] {sfPatternRouting} Connect sfRoute "captcha" (/captcha)
+Nov 04 11:00:31 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_refresh" (/captcha/:random)
+Nov 04 11:00:31 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_demo" (/captcha_demo)
+Nov 04 11:00:31 symfony [info] {sfPatternRouting} Connect sfRoute "captcha" (/captcha)
+Nov 04 11:00:31 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_refresh" (/captcha/:random)
+Nov 04 11:00:31 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_demo" (/captcha_demo)
+Nov 04 11:00:31 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /css/custom-theme/jquery-ui-1.8.18.custom.css with parameters array (  'module' => 'css',  'action' => 'custom-theme',  'jquery-ui-1.8.18.custom.css' => true,)
+Nov 04 11:00:31 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/css/all.css" (/).
+Nov 04 11:00:31 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 04 11:00:31 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 04 11:00:31 symfony [info] {sfWebDebugLogger} Configuration 5.01 ms (5)
+Nov 04 11:00:31 symfony [info] {sfWebDebugLogger} Factories 60.31 ms (1)
+Nov 04 11:00:32 symfony [info] {sfFrontWebController} Action "css/customtheme" does not exist
+Nov 04 11:00:32 symfony [err] {sfError404Exception} Action "css/customtheme" does not exist.
+Nov 04 11:00:32 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 04 11:00:32 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 04 11:00:32 symfony [info] {sfWebDebugLogger} Configuration 7.31 ms (5)
+Nov 04 11:00:32 symfony [info] {sfWebDebugLogger} Factories 124.15 ms (1)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Connect sfRoute "captcha" (/captcha)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_refresh" (/captcha/:random)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_demo" (/captcha_demo)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /css/custom-theme/jquery-ui-1.8.18.custom.css with parameters array (  'module' => 'css',  'action' => 'custom-theme',  'jquery-ui-1.8.18.custom.css' => true,)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Connect sfRoute "captcha" (/captcha)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_refresh" (/captcha/:random)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_demo" (/captcha_demo)
+Nov 04 11:00:43 symfony [info] {sfFrontWebController} Action "css/customtheme" does not exist
+Nov 04 11:00:43 symfony [err] {sfError404Exception} Action "css/customtheme" does not exist.
+Nov 04 11:00:43 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 04 11:00:43 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 04 11:00:43 symfony [info] {sfWebDebugLogger} Configuration 3.73 ms (5)
+Nov 04 11:00:43 symfony [info] {sfWebDebugLogger} Factories 56.46 ms (1)
+Nov 04 11:00:43 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/css/all.css" (/).
+Nov 04 11:00:43 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 04 11:00:43 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 04 11:00:43 symfony [info] {sfWebDebugLogger} Configuration 4.81 ms (5)
+Nov 04 11:00:43 symfony [info] {sfWebDebugLogger} Factories 159.43 ms (1)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Connect sfRoute "captcha" (/captcha)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_refresh" (/captcha/:random)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_demo" (/captcha_demo)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /uploads/image201205/5989b53292f4abd26f1ec6c34e195f19682b711a.jpg with parameters array (  'module' => 'uploads',  'action' => 'image201205',  '5989b53292f4abd26f1ec6c34e195f19682b711a.jpg' => true,)
+Nov 04 11:00:43 symfony [info] {sfFrontWebController} Action "uploads/image201205" does not exist
+Nov 04 11:00:43 symfony [err] {sfError404Exception} Action "uploads/image201205" does not exist.
+Nov 04 11:00:43 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 04 11:00:43 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 04 11:00:43 symfony [info] {sfWebDebugLogger} Configuration 5.18 ms (5)
+Nov 04 11:00:43 symfony [info] {sfWebDebugLogger} Factories 55.41 ms (1)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Connect sfRoute "captcha" (/captcha)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_refresh" (/captcha/:random)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_demo" (/captcha_demo)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /uploads/image201205/694309c93b49963934a8f23d4d3473e8fde4fda2.jpg with parameters array (  'module' => 'uploads',  'action' => 'image201205',  '694309c93b49963934a8f23d4d3473e8fde4fda2.jpg' => true,)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Connect sfRoute "captcha" (/captcha)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_refresh" (/captcha/:random)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_demo" (/captcha_demo)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /uploads/image201205/f8c39ef2d525a180f55e6fb2ea1dd497b71d3fdc.jpg with parameters array (  'module' => 'uploads',  'action' => 'image201205',  'f8c39ef2d525a180f55e6fb2ea1dd497b71d3fdc.jpg' => true,)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Connect sfRoute "captcha" (/captcha)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_refresh" (/captcha/:random)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_demo" (/captcha_demo)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /uploads/image201205/fa01179a5da1661e9763a0ba18339123898a7918.jpg with parameters array (  'module' => 'uploads',  'action' => 'image201205',  'fa01179a5da1661e9763a0ba18339123898a7918.jpg' => true,)
+Nov 04 11:00:43 symfony [info] {sfFrontWebController} Action "uploads/image201205" does not exist
+Nov 04 11:00:43 symfony [err] {sfError404Exception} Action "uploads/image201205" does not exist.
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Connect sfRoute "captcha" (/captcha)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_refresh" (/captcha/:random)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_demo" (/captcha_demo)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /uploads/image201205/dc407d8e256c2eeee47c151f8293c8fafa17038c.jpg with parameters array (  'module' => 'uploads',  'action' => 'image201205',  'dc407d8e256c2eeee47c151f8293c8fafa17038c.jpg' => true,)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Connect sfRoute "captcha" (/captcha)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_refresh" (/captcha/:random)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_demo" (/captcha_demo)
+Nov 04 11:00:43 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /uploads/image201205/944733df985cc5b531a443e0e98c8268aaefc12a.jpg with parameters array (  'module' => 'uploads',  'action' => 'image201205',  '944733df985cc5b531a443e0e98c8268aaefc12a.jpg' => true,)
+Nov 04 11:00:43 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 04 11:00:43 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 04 11:00:43 symfony [info] {sfWebDebugLogger} Configuration 3.77 ms (5)
+Nov 04 11:00:43 symfony [info] {sfWebDebugLogger} Factories 162.94 ms (1)
+Nov 04 11:00:43 symfony [info] {sfFrontWebController} Action "uploads/image201205" does not exist
+Nov 04 11:00:43 symfony [err] {sfError404Exception} Action "uploads/image201205" does not exist.
+Nov 04 11:00:43 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 04 11:00:43 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 04 11:00:43 symfony [info] {sfWebDebugLogger} Configuration 5.00 ms (5)
+Nov 04 11:00:43 symfony [info] {sfWebDebugLogger} Factories 356.74 ms (1)
+Nov 04 11:00:44 symfony [info] {sfFrontWebController} Action "uploads/image201205" does not exist
+Nov 04 11:00:44 symfony [err] {sfError404Exception} Action "uploads/image201205" does not exist.
+Nov 04 11:00:44 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 04 11:00:44 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 04 11:00:44 symfony [info] {sfWebDebugLogger} Configuration 5.30 ms (5)
+Nov 04 11:00:44 symfony [info] {sfWebDebugLogger} Factories 355.15 ms (1)
+Nov 04 11:00:44 symfony [info] {sfFrontWebController} Action "uploads/image201205" does not exist
+Nov 04 11:00:44 symfony [err] {sfError404Exception} Action "uploads/image201205" does not exist.
+Nov 04 11:00:44 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 04 11:00:44 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 04 11:00:44 symfony [info] {sfWebDebugLogger} Configuration 16.42 ms (5)
+Nov 04 11:00:44 symfony [info] {sfWebDebugLogger} Factories 427.39 ms (1)
+Nov 04 11:00:44 symfony [info] {sfFrontWebController} Action "uploads/image201205" does not exist
+Nov 04 11:00:44 symfony [err] {sfError404Exception} Action "uploads/image201205" does not exist.
+Nov 04 11:00:44 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 04 11:00:44 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 04 11:00:44 symfony [info] {sfWebDebugLogger} Configuration 11.17 ms (5)
+Nov 04 11:00:44 symfony [info] {sfWebDebugLogger} Factories 478.45 ms (1)
+Nov 04 11:01:53 symfony [info] {sfPatternRouting} Connect sfRoute "captcha" (/captcha)
+Nov 04 11:01:53 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_refresh" (/captcha/:random)
+Nov 04 11:01:53 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_demo" (/captcha_demo)
+Nov 04 11:01:53 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'main',  'action' => 'home',)
+Nov 04 11:01:53 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 04 11:01:53 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 04 11:01:53 symfony [info] {mainActions} Call "mainActions->executeHome()"
+Nov 04 11:01:53 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Nov 04 11:01:53 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.category_id AS c__category_id, c.category_name AS c__category_name, c.title AS c__title, c.cover AS c__cover, c.intro AS c__intro, c.body AS c__body, c.source AS c__source, c.created_at AS c__created_at FROM content c ORDER BY c.sort DESC, c.created_at ASC LIMIT 10 - ()
+Nov 04 11:01:53 symfony [info] {mainActions} Change template to "CURRENT/list1"
+Nov 04 11:01:53 symfony [info] {sfPHPView} Render "C:\wamp\www\girasole\apps\front\modules/main/templates/list1Success.php"
+Nov 04 11:01:53 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_share.php"
+Nov 04 11:01:53 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_share.php"
+Nov 04 11:01:53 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_share.php"
+Nov 04 11:01:53 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_share.php"
+Nov 04 11:01:53 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_share.php"
+Nov 04 11:01:53 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_share.php"
+Nov 04 11:01:53 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_share.php"
+Nov 04 11:01:53 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_share.php"
+Nov 04 11:01:53 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_share.php"
+Nov 04 11:01:53 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_share.php"
+Nov 04 11:01:53 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_sideright.php"
+Nov 04 11:01:53 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_aphorism.php"
+Nov 04 11:01:53 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.text AS a__text, a.source AS a__source, a.sort AS a__sort, a.created_at AS a__created_at FROM aphorism a WHERE (a.id <> ?) ORDER BY a.sort DESC, a.created_at ASC LIMIT 10 - (0)
+Nov 04 11:01:53 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_reks.php"
+Nov 04 11:01:53 symfony [info] {Doctrine_Connection_Statement} execute : SELECT b.id AS b__id, b.path AS b__path, b.ext AS b__ext, b.link AS b__link, b.target AS b__target, b.position AS b__position, b.start_date AS b__start_date, b.end_date AS b__end_date, b.sort AS b__sort, b.is_active AS b__is_active, b.created_at AS b__created_at FROM banner b WHERE (b.id <> ? AND position = ?) ORDER BY b.sort DESC, b.created_at ASC LIMIT 10 - (0, sideright)
+Nov 04 11:01:53 symfony [info] {sfPHPView} Decorate content with "C:\wamp\www\girasole\apps\front\templates/layout.php"
+Nov 04 11:01:53 symfony [info] {sfPHPView} Render "C:\wamp\www\girasole\apps\front\templates/layout.php"
+Nov 04 11:01:53 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\templates/_header.php"
+Nov 04 11:01:53 symfony [info] {sfPartialView} Render "C:\wamp\www\girasole\apps\front\modules/partial/templates/_rek_header.php"
+Nov 04 11:01:53 symfony [info] {Doctrine_Connection_Statement} execute : SELECT b.id AS b__id, b.path AS b__path, b.ext AS b__ext, b.link AS b__link, b.target AS b__target, b.position AS b__position, b.start_date AS b__start_date, b.end_date AS b__end_date, b.sort AS b__sort, b.is_active AS b__is_active, b.created_at AS b__created_at FROM banner b WHERE (b.id <> ? AND position = ?) ORDER BY b.sort DESC, b.created_at ASC LIMIT 10 - (0, header)
+Nov 04 11:01:53 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 04 11:01:53 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 04 11:01:53 symfony [info] {sfWebDebugLogger} Configuration 9.60 ms (9)
+Nov 04 11:01:53 symfony [info] {sfWebDebugLogger} Factories 52.93 ms (1)
+Nov 04 11:01:53 symfony [info] {sfWebDebugLogger} Action "main/home" 48.34 ms (1)
+Nov 04 11:01:53 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (5)
+Nov 04 11:01:53 symfony [info] {sfWebDebugLogger} View "Success" for "main/home" 97.52 ms (1)
+Nov 04 11:01:53 symfony [info] {sfWebDebugLogger} Partial "partial/_share" 4.76 ms (10)
+Nov 04 11:01:53 symfony [info] {sfWebDebugLogger} Partial "partial/_sideright" 37.97 ms (1)
+Nov 04 11:01:53 symfony [info] {sfWebDebugLogger} Partial "partial/_aphorism" 21.95 ms (1)
+Nov 04 11:01:53 symfony [info] {sfWebDebugLogger} Partial "partial/_reks" 14.54 ms (1)
+Nov 04 11:01:53 symfony [info] {sfWebDebugLogger} Partial "global/_header" 2.32 ms (1)
+Nov 04 11:01:53 symfony [info] {sfWebDebugLogger} Partial "partial/_rek_header" 10.14 ms (1)
+Nov 04 11:01:53 symfony [info] {sfWebResponse} Send content (72256 o)
+Nov 04 11:01:54 symfony [info] {sfPatternRouting} Connect sfRoute "captcha" (/captcha)
+Nov 04 11:01:54 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_refresh" (/captcha/:random)
+Nov 04 11:01:54 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_demo" (/captcha_demo)
+Nov 04 11:01:54 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /uploads/image201205/5989b53292f4abd26f1ec6c34e195f19682b711a.jpg with parameters array (  'module' => 'uploads',  'action' => 'image201205',  '5989b53292f4abd26f1ec6c34e195f19682b711a.jpg' => true,)
+Nov 04 11:01:54 symfony [info] {sfPatternRouting} Connect sfRoute "captcha" (/captcha)
+Nov 04 11:01:54 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_refresh" (/captcha/:random)
+Nov 04 11:01:54 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_demo" (/captcha_demo)
+Nov 04 11:01:54 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /css/custom-theme/jquery-ui-1.8.18.custom.css with parameters array (  'module' => 'css',  'action' => 'custom-theme',  'jquery-ui-1.8.18.custom.css' => true,)
+Nov 04 11:01:54 symfony [info] {sfPatternRouting} Connect sfRoute "captcha" (/captcha)
+Nov 04 11:01:54 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_refresh" (/captcha/:random)
+Nov 04 11:01:54 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_demo" (/captcha_demo)
+Nov 04 11:01:54 symfony [info] {sfFrontWebController} Action "uploads/image201205" does not exist
+Nov 04 11:01:54 symfony [err] {sfError404Exception} Action "uploads/image201205" does not exist.
+Nov 04 11:01:54 symfony [info] {sfPatternRouting} Connect sfRoute "captcha" (/captcha)
+Nov 04 11:01:54 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_refresh" (/captcha/:random)
+Nov 04 11:01:54 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_demo" (/captcha_demo)
+Nov 04 11:01:54 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /uploads/image201205/dc407d8e256c2eeee47c151f8293c8fafa17038c.jpg with parameters array (  'module' => 'uploads',  'action' => 'image201205',  'dc407d8e256c2eeee47c151f8293c8fafa17038c.jpg' => true,)
+Nov 04 11:01:54 symfony [info] {sfPatternRouting} Connect sfRoute "captcha" (/captcha)
+Nov 04 11:01:54 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_refresh" (/captcha/:random)
+Nov 04 11:01:54 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_demo" (/captcha_demo)
+Nov 04 11:01:54 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /uploads/image201205/694309c93b49963934a8f23d4d3473e8fde4fda2.jpg with parameters array (  'module' => 'uploads',  'action' => 'image201205',  '694309c93b49963934a8f23d4d3473e8fde4fda2.jpg' => true,)
+Nov 04 11:01:54 symfony [info] {sfPatternRouting} Connect sfRoute "captcha" (/captcha)
+Nov 04 11:01:54 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_refresh" (/captcha/:random)
+Nov 04 11:01:54 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 04 11:01:54 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_demo" (/captcha_demo)
+Nov 04 11:01:54 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 04 11:01:54 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /uploads/image201205/f8c39ef2d525a180f55e6fb2ea1dd497b71d3fdc.jpg with parameters array (  'module' => 'uploads',  'action' => 'image201205',  'f8c39ef2d525a180f55e6fb2ea1dd497b71d3fdc.jpg' => true,)
+Nov 04 11:01:54 symfony [info] {sfWebDebugLogger} Configuration 11.65 ms (5)
+Nov 04 11:01:54 symfony [info] {sfWebDebugLogger} Factories 111.85 ms (1)
+Nov 04 11:01:54 symfony [info] {sfFrontWebController} Action "css/customtheme" does not exist
+Nov 04 11:01:54 symfony [err] {sfError404Exception} Action "css/customtheme" does not exist.
+Nov 04 11:01:54 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 04 11:01:54 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 04 11:01:54 symfony [info] {sfWebDebugLogger} Configuration 21.59 ms (5)
+Nov 04 11:01:54 symfony [info] {sfWebDebugLogger} Factories 300.37 ms (1)
+Nov 04 11:01:54 symfony [info] {sfPatternRouting} Connect sfRoute "captcha" (/captcha)
+Nov 04 11:01:54 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_refresh" (/captcha/:random)
+Nov 04 11:01:54 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_demo" (/captcha_demo)
+Nov 04 11:01:54 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /uploads/image201205/fa01179a5da1661e9763a0ba18339123898a7918.jpg with parameters array (  'module' => 'uploads',  'action' => 'image201205',  'fa01179a5da1661e9763a0ba18339123898a7918.jpg' => true,)
+Nov 04 11:01:54 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/css/all.css" (/).
+Nov 04 11:01:54 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 04 11:01:54 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 04 11:01:54 symfony [info] {sfWebDebugLogger} Configuration 44.93 ms (5)
+Nov 04 11:01:54 symfony [info] {sfWebDebugLogger} Factories 383.17 ms (1)
+Nov 04 11:01:54 symfony [info] {sfFrontWebController} Action "uploads/image201205" does not exist
+Nov 04 11:01:54 symfony [err] {sfError404Exception} Action "uploads/image201205" does not exist.
+Nov 04 11:01:54 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 04 11:01:54 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 04 11:01:54 symfony [info] {sfWebDebugLogger} Configuration 3.97 ms (5)
+Nov 04 11:01:54 symfony [info] {sfWebDebugLogger} Factories 428.78 ms (1)
+Nov 04 11:01:54 symfony [info] {sfFrontWebController} Action "uploads/image201205" does not exist
+Nov 04 11:01:54 symfony [err] {sfError404Exception} Action "uploads/image201205" does not exist.
+Nov 04 11:01:54 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 04 11:01:54 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 04 11:01:54 symfony [info] {sfWebDebugLogger} Configuration 30.82 ms (5)
+Nov 04 11:01:54 symfony [info] {sfWebDebugLogger} Factories 467.32 ms (1)
+Nov 04 11:01:54 symfony [info] {sfFrontWebController} Action "uploads/image201205" does not exist
+Nov 04 11:01:54 symfony [err] {sfError404Exception} Action "uploads/image201205" does not exist.
+Nov 04 11:01:54 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 04 11:01:54 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 04 11:01:54 symfony [info] {sfWebDebugLogger} Configuration 47.21 ms (5)
+Nov 04 11:01:54 symfony [info] {sfWebDebugLogger} Factories 724.86 ms (1)
+Nov 04 11:01:54 symfony [info] {sfFrontWebController} Action "uploads/image201205" does not exist
+Nov 04 11:01:54 symfony [err] {sfError404Exception} Action "uploads/image201205" does not exist.
+Nov 04 11:01:54 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 04 11:01:54 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 04 11:01:54 symfony [info] {sfWebDebugLogger} Configuration 5.05 ms (5)
+Nov 04 11:01:54 symfony [info] {sfWebDebugLogger} Factories 488.69 ms (1)
+Nov 04 11:01:58 symfony [info] {sfPatternRouting} Connect sfRoute "captcha" (/captcha)
+Nov 04 11:01:58 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_refresh" (/captcha/:random)
+Nov 04 11:01:58 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_demo" (/captcha_demo)
+Nov 04 11:01:58 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /css/custom-theme/jquery-ui-1.8.18.custom.css with parameters array (  'module' => 'css',  'action' => 'custom-theme',  'jquery-ui-1.8.18.custom.css' => true,)
+Nov 04 11:01:58 symfony [info] {sfPatternRouting} Connect sfRoute "captcha" (/captcha)
+Nov 04 11:01:58 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_refresh" (/captcha/:random)
+Nov 04 11:01:58 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_demo" (/captcha_demo)
+Nov 04 11:01:58 symfony [info] {sfFrontWebController} Action "css/customtheme" does not exist
+Nov 04 11:01:58 symfony [err] {sfError404Exception} Action "css/customtheme" does not exist.
+Nov 04 11:01:58 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 04 11:01:58 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 04 11:01:58 symfony [info] {sfWebDebugLogger} Configuration 3.32 ms (5)
+Nov 04 11:01:58 symfony [info] {sfWebDebugLogger} Factories 50.33 ms (1)
+Nov 04 11:01:58 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/css/all.css" (/).
+Nov 04 11:01:58 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 04 11:01:58 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 04 11:01:58 symfony [info] {sfWebDebugLogger} Configuration 4.55 ms (5)
+Nov 04 11:01:58 symfony [info] {sfWebDebugLogger} Factories 153.15 ms (1)
+Nov 04 11:01:58 symfony [info] {sfPatternRouting} Connect sfRoute "captcha" (/captcha)
+Nov 04 11:01:58 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_refresh" (/captcha/:random)
+Nov 04 11:01:58 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_demo" (/captcha_demo)
+Nov 04 11:01:58 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /uploads/image201205/fa01179a5da1661e9763a0ba18339123898a7918.jpg with parameters array (  'module' => 'uploads',  'action' => 'image201205',  'fa01179a5da1661e9763a0ba18339123898a7918.jpg' => true,)
+Nov 04 11:01:58 symfony [info] {sfPatternRouting} Connect sfRoute "captcha" (/captcha)
+Nov 04 11:01:58 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_refresh" (/captcha/:random)
+Nov 04 11:01:58 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_demo" (/captcha_demo)
+Nov 04 11:01:58 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /uploads/image201205/694309c93b49963934a8f23d4d3473e8fde4fda2.jpg with parameters array (  'module' => 'uploads',  'action' => 'image201205',  '694309c93b49963934a8f23d4d3473e8fde4fda2.jpg' => true,)
+Nov 04 11:01:58 symfony [info] {sfPatternRouting} Connect sfRoute "captcha" (/captcha)
+Nov 04 11:01:58 symfony [info] {sfPatternRouting} Connect sfRoute "captcha" (/captcha)
+Nov 04 11:01:58 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_refresh" (/captcha/:random)
+Nov 04 11:01:58 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_demo" (/captcha_demo)
+Nov 04 11:01:58 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /uploads/image201205/dc407d8e256c2eeee47c151f8293c8fafa17038c.jpg with parameters array (  'module' => 'uploads',  'action' => 'image201205',  'dc407d8e256c2eeee47c151f8293c8fafa17038c.jpg' => true,)
+Nov 04 11:01:58 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_refresh" (/captcha/:random)
+Nov 04 11:01:58 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_demo" (/captcha_demo)
+Nov 04 11:01:58 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /uploads/image201205/5989b53292f4abd26f1ec6c34e195f19682b711a.jpg with parameters array (  'module' => 'uploads',  'action' => 'image201205',  '5989b53292f4abd26f1ec6c34e195f19682b711a.jpg' => true,)
+Nov 04 11:01:58 symfony [info] {sfPatternRouting} Connect sfRoute "captcha" (/captcha)
+Nov 04 11:01:58 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_refresh" (/captcha/:random)
+Nov 04 11:01:58 symfony [info] {sfPatternRouting} Connect sfRoute "captcha_demo" (/captcha_demo)
+Nov 04 11:01:58 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /uploads/image201205/f8c39ef2d525a180f55e6fb2ea1dd497b71d3fdc.jpg with parameters array (  'module' => 'uploads',  'action' => 'image201205',  'f8c39ef2d525a180f55e6fb2ea1dd497b71d3fdc.jpg' => true,)
+Nov 04 11:01:58 symfony [info] {sfFrontWebController} Action "uploads/image201205" does not exist
+Nov 04 11:01:58 symfony [err] {sfError404Exception} Action "uploads/image201205" does not exist.
+Nov 04 11:01:58 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 04 11:01:58 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 04 11:01:58 symfony [info] {sfWebDebugLogger} Configuration 5.13 ms (5)
+Nov 04 11:01:58 symfony [info] {sfWebDebugLogger} Factories 86.92 ms (1)
+Nov 04 11:01:58 symfony [info] {sfFrontWebController} Action "uploads/image201205" does not exist
+Nov 04 11:01:58 symfony [err] {sfError404Exception} Action "uploads/image201205" does not exist.
+Nov 04 11:01:59 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 04 11:01:59 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 04 11:01:59 symfony [info] {sfWebDebugLogger} Configuration 3.53 ms (5)
+Nov 04 11:01:59 symfony [info] {sfWebDebugLogger} Factories 233.70 ms (1)
+Nov 04 11:01:59 symfony [info] {sfFrontWebController} Action "uploads/image201205" does not exist
+Nov 04 11:01:59 symfony [err] {sfError404Exception} Action "uploads/image201205" does not exist.
+Nov 04 11:01:59 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 04 11:01:59 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 04 11:01:59 symfony [info] {sfWebDebugLogger} Configuration 5.08 ms (5)
+Nov 04 11:01:59 symfony [info] {sfWebDebugLogger} Factories 308.98 ms (1)
+Nov 04 11:01:59 symfony [info] {sfFrontWebController} Action "uploads/image201205" does not exist
+Nov 04 11:01:59 symfony [err] {sfError404Exception} Action "uploads/image201205" does not exist.
+Nov 04 11:01:59 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 04 11:01:59 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 04 11:01:59 symfony [info] {sfWebDebugLogger} Configuration 3.61 ms (5)
+Nov 04 11:01:59 symfony [info] {sfWebDebugLogger} Factories 562.19 ms (1)
+Nov 04 11:01:59 symfony [info] {sfFrontWebController} Action "uploads/image201205" does not exist
+Nov 04 11:01:59 symfony [err] {sfError404Exception} Action "uploads/image201205" does not exist.
+Nov 04 11:01:59 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 04 11:01:59 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 04 11:01:59 symfony [info] {sfWebDebugLogger} Configuration 6.17 ms (5)
+Nov 04 11:01:59 symfony [info] {sfWebDebugLogger} Factories 605.24 ms (1)

@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file source-language="EN" target-language="mn" datatype="plaintext" original="messages" date="2011-05-28T11:24:57Z" product-name="messages">
+    <header/>
+    <body>
+      <trans-unit id="1">
+        <source>Welcome</source>
+        <target>Тавтай морил</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>News</source>
+        <target>Мэдээ, мэдээлэл</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Introduction</source>
+        <target>Танилцуулга</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Service</source>
+        <target>Үйлчилгээ</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>My Profile</source>
+        <target>Миний профайл</target>
+      </trans-unit>
+      <trans-unit id="6">
+        <source>Room</source>
+        <target>Өрөө</target>
+      </trans-unit>
+      <trans-unit id="7">
+        <source>Menu</source>
+        <target>Меню</target>
+      </trans-unit>
+      <trans-unit id="8">
+        <source>Gallery</source>
+        <target>Зургийн цомог</target>
+      </trans-unit>
+      <trans-unit id="9">
+        <source>Description</source>
+        <target>Дэлгэрэнгүй</target>
+      </trans-unit>
+      <trans-unit id="10">
+        <source>Mongolian First Luxury VIP CLUB, KARAOKE</source>
+        <target>Монголын хамгийн анхны тансаг зэрэглэлийн VIP Club, Kараоке</target>
+      </trans-unit>
+      <trans-unit id="11">
+        <source>Gallery</source>
+        <target>Цомог</target>
+      </trans-unit>
+      <trans-unit id="12">
+        <source>Contact Us</source>
+        <target>Холбоо барих</target>
+      </trans-unit>
+      <trans-unit id="13">
+        <source>Submit</source>
+        <target>Батлах</target>
+      </trans-unit>
+      <trans-unit id="14">
+        <source>All rights reserved</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="15">
+        <source>Karaoke</source>
+        <target>Kараоке</target>
+      </trans-unit>
+      <trans-unit id="16">
+        <source>Share this</source>
+        <target>Хуваалцах</target>
+      </trans-unit>
+      <trans-unit id="17">
+        <source>Sign up for our newsletter</source>
+        <target>тогтмол мэдээлэл авах</target>
+      </trans-unit>
+      <trans-unit id="18">
+        <source>Newsletter</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="19">
+        <source>enter your email address</source>
+        <target>имэйл хаягаа оруулна уу</target>
+      </trans-unit>
+      <trans-unit id="20">
+        <source>Join Newsletter</source>
+        <target>Бүртгүүлэх</target>
+      </trans-unit>
+      <trans-unit id="21">
+        <source>Name</source>
+        <target>Таны нэр</target>
+      </trans-unit>
+      <trans-unit id="22">
+        <source>Email</source>
+        <target>Имэйл хаяг</target>
+      </trans-unit>
+      <trans-unit id="23">
+        <source>Message</source>
+        <target>Зурвас</target>
+      </trans-unit>
+      <trans-unit id="24">
+        <source>Send</source>
+        <target>Илгээх</target>
+      </trans-unit>
+      <trans-unit id="25">
+        <source>Please copy the security code</source>
+        <target>Зурган дээрх кодыг оруулна уу</target>
+      </trans-unit>
+      <trans-unit id="26">
+        <source>Feedback</source>
+        <target>Санал хүсэлт</target>
+      </trans-unit>
+      <trans-unit id="27">
+        <source>You did not copy any code. Please copy the code.</source>
+        <target>Зурган дээрх кодыг оруулна уу.</target>
+      </trans-unit>
+      <trans-unit id="28">
+        <source>Invalid email.</source>
+        <target>Имэйл хаяг буруу байна.</target>
+      </trans-unit>
+      <trans-unit id="29">
+        <source>Required.</source>
+        <target>Утга оруулах шаардлагатай.</target>
+      </trans-unit>
+      <trans-unit id="30">
+        <source>The code you copied is not valid.</source>
+        <target>Кодыг буруу оруулсан байна.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Location</source>
+        <target>Байршил</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Contact Details</source>
+        <target>Холбоо барих</target>
+      </trans-unit>
+      <trans-unit id="25">
+        <source>Please copy the</source>
+        <target>Зурган дээрх</target>
+      </trans-unit>
+      <trans-unit>
+        <source>security code</source>
+        <target>кодыг оруулна уу</target>
+      </trans-unit>
+      <trans-unit>
+        <source>SUKHBAATAR DISTRICT</source>
+        <target>СҮХБААТАР ДҮҮРЭГ</target>
+      </trans-unit>
+      <trans-unit>
+        <source>ULAANBAATAR, MONGOLIA</source>
+        <target>УЛААНБААТАР, МОНГОЛ</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Do you have questions or comments? Would you like to receive more information or make a reservation? Personal service and attention are very important to us. Please contact us.</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source>Management</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source>Sales Management</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source>Group Reservations</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="12">
+        <source>Contact</source>
+        <target>Хаяг</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Ulaanbaatar</source>
+        <target>Улаанбаатар</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Mongolia</source>
+        <target>Монгол</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Sukhbaatar district</source>
+        <target>Сүхбаатар дүүрэг</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Ulaanbaatar, Mongolia</source>
+        <target>Улаанбаатар, Монгол</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Conditions</source>
+        <target>нөхцөл</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Terms</source>
+        <target>Үйлчилгээний</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Sukhbaatar</source>
+        <target>Сүхбаатар</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Guest comments</source>
+        <target>Зочдын сэтгэгдэл</target>
+      </trans-unit>
+      <trans-unit>
+        <source>More</source>
+        <target>Цааш нь</target>
+      </trans-unit>
+      <trans-unit>
+        <source>More Info</source>
+        <target>Дэлгэрэнгүй</target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

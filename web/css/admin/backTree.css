@@ -1,0 +1,57 @@
+/* TREE MENU */
+.treeview
+{
+	margin: 0;
+	padding: 3px;
+}
+
+.treeview ul
+{ 
+	margin: 0;
+	padding: 0;
+}
+
+/*Style for LI elements in general (excludes an LI that contains sub lists)*/
+.treeview li
+{ 
+	background: url(../../images/icons/list-tree.png) no-repeat left;
+	list-style-type: none;
+	padding: 3px;
+	padding-left: 20px;
+	font-size: 12px;
+}
+
+.treeview li a
+{ 
+	background: none;
+	
+}
+
+/* Style for LI that contains sub lists (other ULs). */
+.treeview li.submenu
+{ 
+	background: url(../../images/icons/closed.png) no-repeat left 5px;
+	cursor: pointer;
+}
+
+/*Style for ULs that are children of LIs (submenu) */
+.treeview li.submenu ul
+{ 
+	display: none; /*Hide them by default. Don't delete. */
+}
+
+/*Style for LIs of ULs that are children of LIs (submenu) */
+.treeview .submenu ul li
+{ 
+	cursor: default;	
+}
+
+.treeview .submenu ul li a
+{ 
+	background: none;
+}
+
+.small a{
+  font-size: 11px;
+  color: #888;
+}
