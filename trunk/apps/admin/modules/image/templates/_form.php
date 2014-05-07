@@ -8,7 +8,7 @@
         <td colspan="2">
           <?php echo $form->renderHiddenFields(false) ?>
           <input type="submit" value="Save" />
-          &nbsp;<a href="<?php echo url_for('image/index') ?>">Back to list</a>
+          &nbsp;<a href="<?php echo url_for('image/index?objectType='.$objectType.'&objectId='.$objectId) ?>">Back to list</a>
         </td>
       </tr>
     </tfoot>
@@ -27,7 +27,7 @@
         <td>
           <?php echo $form['filename']->renderError() ?>
           <?php echo $form['filename'] ?>
-          <?php echo $form['filename']->renderHelp() ?>
+          <span class="description"><?php echo $form['filename']->renderHelp() ?></span>
         </td>
       </tr>
       <tr>
@@ -63,12 +63,13 @@
 </form>
 
 
+
 <script type="text/javascript">
 function loadObjects()
 {
   $.ajax({
       url: "<?php echo url_for('image/loadObjects')?>",
-      data: {objectType : $('#image_object_type').val(), objectId: <?php echo $sf_request->getParameter('objectId') ? $sf_request->getParameter('objectId') : 0?>},
+      data: {objectType : $('#image_object_type').val(), objectId: <?php echo $objectId ? $objectId : 0?>},
       type: "POST",
       success: function(data){
           $('#containerObjectId').html('<select id="image_object_id" name="image[object_id]" style="width:400px;">' + data + '</select>');

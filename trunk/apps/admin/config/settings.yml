@@ -37,13 +37,13 @@ all:
 
     standard_helpers:       [Partial, Cache, Global, I18N]
     
-    secure_module:          user
-    secure_action:          login
-    
     error_404_module:       public
     error_404_action:       default
     
-    login_module:           user
+    secure_module:          admin
+    secure_action:          login
+    
+    login_module:           admin
     login_action:           login
     
     rich_text_fck_js_dir:   js/fckeditor

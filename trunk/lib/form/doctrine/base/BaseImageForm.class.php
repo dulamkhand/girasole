@@ -23,8 +23,9 @@ abstract class BaseImageForm extends BaseFormDoctrine
       'folder'      => new sfWidgetFormInputText(),
       'filename'    => new sfWidgetFormInputText(),
       'sort'        => new sfWidgetFormInputText(),
-      'iscover'     => new sfWidgetFormInputText(),
+      'iscover'     => new sfWidgetFormInputCheckbox(),
       'created_at'  => new sfWidgetFormDateTime(),
+      'nb_love'     => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
@@ -36,8 +37,9 @@ abstract class BaseImageForm extends BaseFormDoctrine
       'folder'      => new sfValidatorString(array('max_length' => 255)),
       'filename'    => new sfValidatorString(array('max_length' => 255)),
       'sort'        => new sfValidatorInteger(),
-      'iscover'     => new sfValidatorInteger(),
+      'iscover'     => new sfValidatorBoolean(),
       'created_at'  => new sfValidatorDateTime(),
+      'nb_love'     => new sfValidatorInteger(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('image[%s]');

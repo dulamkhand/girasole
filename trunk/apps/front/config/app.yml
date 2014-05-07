@@ -3,4 +3,12 @@
 
 # default values
 all:
+  #host: http://ow
+  #host: http://localhost/ow/web
+  host: http://www.dagina.mn/
+  webname: ДАГИНА
+  feedbackmail: handaa.1224@gmail.com
   pager: 10
+  limit: 10
+  nb_discuss: 30
+  nb_comment: 10

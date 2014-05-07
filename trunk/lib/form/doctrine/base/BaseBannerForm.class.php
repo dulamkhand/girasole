@@ -19,13 +19,15 @@ abstract class BaseBannerForm extends BaseFormDoctrine
       'path'       => new sfWidgetFormInputText(),
       'ext'        => new sfWidgetFormInputText(),
       'link'       => new sfWidgetFormInputText(),
-      'target'     => new sfWidgetFormInputText(),
+      'route'      => new sfWidgetFormInputText(),
+      'target'     => new sfWidgetFormInputCheckbox(),
       'position'   => new sfWidgetFormInputText(),
       'start_date' => new sfWidgetFormDate(),
       'end_date'   => new sfWidgetFormDate(),
       'sort'       => new sfWidgetFormInputText(),
-      'is_active'  => new sfWidgetFormInputText(),
+      'is_active'  => new sfWidgetFormInputCheckbox(),
       'created_at' => new sfWidgetFormDateTime(),
+      'nb_love'    => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
@@ -33,13 +35,15 @@ abstract class BaseBannerForm extends BaseFormDoctrine
       'path'       => new sfValidatorString(array('max_length' => 255)),
       'ext'        => new sfValidatorString(array('max_length' => 255)),
       'link'       => new sfValidatorString(array('max_length' => 255)),
-      'target'     => new sfValidatorInteger(array('required' => false)),
+      'route'      => new sfValidatorString(array('max_length' => 255)),
+      'target'     => new sfValidatorBoolean(array('required' => false)),
       'position'   => new sfValidatorString(array('max_length' => 255)),
       'start_date' => new sfValidatorDate(),
       'end_date'   => new sfValidatorDate(),
       'sort'       => new sfValidatorInteger(array('required' => false)),
-      'is_active'  => new sfValidatorInteger(array('required' => false)),
+      'is_active'  => new sfValidatorBoolean(array('required' => false)),
       'created_at' => new sfValidatorDateTime(),
+      'nb_love'    => new sfValidatorInteger(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('banner[%s]');

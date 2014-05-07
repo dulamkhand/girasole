@@ -15,7 +15,6 @@
     </tfoot>
     <tbody>
       <?php echo $form->renderGlobalErrors() ?>
-      
        <tr>
         <th><?php echo $form['email']->renderLabel() ?></th>
         <td>
@@ -23,7 +22,6 @@
           <?php echo $form['email'] ?>
         </td>
       </tr>
-      
       <tr>
         <th><?php echo $form['password']->renderLabel() ?></th>
         <td>
@@ -31,23 +29,20 @@
           <?php echo $form['password'] ?>
         </td>
       </tr>
-      
       <tr>
-        <th><?php echo $form['firstname']->renderLabel() ?></th>
+        <th><?php echo $form['fullname']->renderLabel() ?></th>
         <td>
-          <?php echo $form['firstname']->renderError() ?>
-          <?php echo $form['firstname'] ?>
+          <?php echo $form['fullname']->renderError() ?>
+          <?php echo $form['fullname'] ?>
         </td>
       </tr>
-
       <tr>
-        <th><?php echo $form['lastname']->renderLabel() ?></th>
+        <th><?php echo $form['about']->renderLabel() ?></th>
         <td>
-          <?php echo $form['lastname']->renderError() ?>
-          <?php echo $form['lastname'] ?>
+          <?php echo $form['about']->renderError() ?>
+          <?php echo $form['about'] ?>
         </td>
       </tr>
-      
       <tr>
         <th><?php echo $form['mobile']->renderLabel() ?></th>
         <td>
@@ -55,15 +50,20 @@
           <?php echo $form['mobile'] ?>
         </td>
       </tr>
-      
       <tr>
-        <th><?php echo $form['address']->renderLabel() ?></th>
+        <th><?php echo $form['avator']->renderLabel() ?></th>
         <td>
-          <?php echo $form['address']->renderError() ?>
-          <?php echo $form['address'] ?>
+          <?php echo $form['avator']->renderError() ?>
+          <?php echo $form['avator'] ?>
         </td>
       </tr>
-      
+      <tr>
+        <th><?php echo $form['image']->renderLabel() ?></th>
+        <td>
+          <?php echo $form['image']->renderError() ?>
+          <?php echo $form['image'] ?>
+        </td>
+      </tr>
       <tr>
         <th><?php echo $form['is_active']->renderLabel() ?></th>
         <td>
@@ -71,15 +71,14 @@
           <?php echo $form['is_active'] ?>
         </td>
       </tr>
-      
       <tr>
         <th><?php echo $form['is_admin']->renderLabel() ?></th>
         <td>
           <?php echo $form['is_admin']->renderError() ?>
           <?php echo $form['is_admin'] ?>
+          <div class="description"><?php echo $form['is_admin']->renderHelp() ?></div>
         </td>
       </tr>
-      
     </tbody>
   </table>
 

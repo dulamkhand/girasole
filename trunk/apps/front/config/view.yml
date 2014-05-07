@@ -6,13 +6,13 @@ default:
     content-type: text/html
 
   metas:
-    title:        Women
-    description:  Women
-    keywords:     Women
+    title:        ДАГИНА &hearts; Зөвхөн бүсгүйчүүдийн ертөнц
+    description:  ДАГИНА &hearts; Зөвхөн бүсгүйчүүдийн ертөнц
+    keywords:     ДАГИНА &hearts; Зөвхөн бүсгүйчүүдийн ертөнц
     language:     en
     robots:       index, follow
 
-  stylesheets:    [front.css]
+  stylesheets:    [front.css, custom.css, other.css]
 
   javascripts:    []
 

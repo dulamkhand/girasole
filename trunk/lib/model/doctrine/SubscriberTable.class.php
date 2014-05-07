@@ -16,4 +16,91 @@ class SubscriberTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Subscriber');
     }
+    
+    public function doExecute($params = array())
+    {
+        $q = Doctrine_Query::create()->select('*');
+        $q = self::params($q, $params);
+        
+        return $q->execute();
+    }
+    
+  
+    public function doFetchArray($params = array())
+    {
+        $q = Doctrine_Query::create()->select('*');
+        $q = self::params($q, $params);
+                
+        return $q->fetchArray();
+    }
+    
+    
+    public function doFetchSelection($params = array())
+    {
+        $res = array();
+        $rss = self::doFetchArray($params);
+        foreach ($rss as $rs)
+        {
+          $res[$rs['id']] = $rs['question'];
+        }
+        return $res;
+    }
+    
+    
+    public function doFetchOne($params = array())
+    {
+        $q = Doctrine_Query::create()->select('*');
+        $q = self::params($q, $params);
+        return $q->fetchOne();
+    }
+    
+  
+    public function doCount($params = array())
+    {
+        $q = Doctrine_Query::create()->select('count(id)');
+        $q = self::params($q, $params);
+        return $q->count();
+    }
+    
+    public function getPager($params = array(), $page=1)
+    {
+        $q = Doctrine_Query::create()->select('*');
+        $q = self::params($q, $params);
+                
+        $pager = new sfDoctrinePager('Subscriber', sfConfig::get('app_pager', 30));
+        $pager->setPage($page);
+        $pager->setQuery($q);
+        $pager->init();
+        
+        return $pager;
+    }
+    
+    
+    private function params($q, $params = array())
+    {
+        $q->from('Subscriber');
+        
+        if(isset($params['id']) && $params['id'] != null)
+            $q->andWhere('id = ?', $params['id']);
+
+        if(isset($params['email']) && $params['email'] != null)
+            $q->andWhere('email = ?', array($params['email']));
+            
+        if(isset($params['keyword']) && $params['keyword'] != null)
+            $q->andWhere('email LIKE ?', array('%'.$params['keyword'].'%'));
+  
+        # group, order, limit
+        if(isset($params['groupBy']) && $params['groupBy']) 
+            $q->groupBy($params['groupBy']);
+        
+        $order = 'email ASC, created_at DESC';
+		    if(isset($params['orderBy'])) $order = $params['orderBy'];
+        $q->orderBy($order);
+        
+        $limit = isset($params['limit']) ? $params['limit'] : sfConfig::get('app_limit', 30);
+        $q->limit($limit);
+
+        return $q;
+    }
+
 }

@@ -1,71 +1,92 @@
 <form action="<?php echo url_for('content/index')?>" method="GET">
-    <b>Keyword</b>&nbsp; <input type="text" value="<?php echo $sf_params->get('keyword')?>" name="keyword" id="keyword" size="40" style="padding:6px;"/>
-    <input type="submit" value="Submit" />
+    <b>Category</b>&nbsp; 
+    <select name="categoryId" id="categoryId" style="width:320px;">
+        <option></option>
+        <?php $categoryId = $sf_params->get("categoryId");?>
+        <?php $perms = $sf_user->getCatPermissions();?>
+        <?php include_partial('content/optionCats', array('type'=>'businesswoman', 'perms'=>$perms, 'categoryId'=>$categoryId));?>
+        <?php include_partial('content/optionCats', array('type'=>'housewife', 'perms'=>$perms, 'categoryId'=>$categoryId));?>
+        <?php include_partial('content/optionCats', array('type'=>'diva', 'perms'=>$perms, 'categoryId'=>$categoryId));?>
+        <?php include_partial('content/optionCats', array('type'=>'teenage', 'perms'=>$perms, 'categoryId'=>$categoryId));?>
+        <?php include_partial('content/optionCats', array('type'=>'patriot', 'perms'=>$perms, 'categoryId'=>$categoryId));?>
+    </select> &nbsp; 
+    
+    <?php include_partial('global/search', array());?>
 </form>
 
-<br clear="all">
 
-<a href="<?php echo url_for('content/new')?>"><?php echo image_tag('icons/with-shadows/badge-square-plus-24.png', array())?></a>
 <br clear="all">
 <br clear="all">
+<?php echo pager($pager, 'content/index');?>
 <table width="100%">
   <thead>
     <tr>
       <th>#</th>
       <th>Content</th>
-      <th>Intro</th>
-      <th>Category</th>      
-      <th>Additional</th>
-      <th>Manage</th>
+      <th>Cover</th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
-    <?php $i=0; foreach ($pager->getResults() as $content): ?>
-    <tr style="<?php if($content->getIsFeatured()) echo 'background-color:#ffffaa;'?>">
-      <td><?php echo ++$i?></td>
-      <td><b><?php echo $content ?></b><br>
-          <?php echo image_tag('/uploads/'.$content->getCover(), array('style'=>'max-width:200px;'))?>
-      </td>
-      <td><?php echo myTools::utf8_substr(strip_tags($content->getIntro()), 0, 150).' ...' ?></td>
-      <td><?php echo $content->getCategoryName() ?></td>
-      <td nowrap>
-        <b>Sort:</b> <?php echo $content->getSort() ?><br>
-        <b>Nb of views:</b> <?php //echo $content->getNbViews() ?><br>
-        <b>Created at:</b> <?php echo $content->getCreatedAt() ?>
-      </td>
-      <td nowrap>
-        <a href="<?php echo url_for('image/index?objectId='.$content->getId().'&objectType=content') ?>">Зураг үзэх</a><br>
-        <a href="<?php echo url_for('image/new?objectId='.$content->getId().'&objectType=content') ?>">Зураг нэмэх</a>
-        <?php if($content->getIsFeatured()==1):?>
-          <a href="<?php echo url_for('content/featured?id='.$content->getId().'&status=0') ?>" title="Онцлох биш болгох" style="text-decoration:none;">
-              <?php echo image_tag('icons/with-shadows/badge-circle-minus-24.png', array())?>
-          </a>
-        <?php else:?>
-          <a href="<?php echo url_for('content/featured?id='.$content->getId().'&status=1') ?>" title="Онцлох болгох" style="text-decoration:none;">
-              <?php echo image_tag('icons/with-shadows/badge-circle-direction-up-24.png', array())?>
-          </a>
-        <?php endif;?>
-
-        <?php if($content->getIsActive()==1):?>
-          <a href="<?php echo url_for('content/active?id='.$content->getId().'&status=0') ?>" title="Идэвхгүй болгох" style="text-decoration:none;">
-              <?php echo image_tag('icons/with-shadows/badge-square-minus-24.png', array())?>
-          </a>
-        <?php else:?>
-          <a href="<?php echo url_for('content/active?id='.$content->getId().'&status=1') ?>" title="Идэвхжүүлэх" style="text-decoration:none;">
-              <?php echo image_tag('icons/with-shadows/badge-square-check-24.png', array())?>
-          </a>
-        <?php endif;?>
-        
-        <a href="<?php echo url_for('content/edit?id='.$content->getId())?>" title="Засварлах" style="text-decoration:none;">
-            <?php echo image_tag('icons/with-shadows/page-pencil-24.png', array())?>
-        </a>
-        <a onclick="return confirm('Are you sure?')" href="<?php echo url_for('content/delete?id='.$content->getId())?>" title="Устгах" style="text-decoration:none;">
-            <?php echo image_tag('icons/with-shadows/cross-24.png', array())?>
-        </a>
-      </td>
-    </tr>
+    <?php $i=0; foreach ($pager->getResults() as $rs): ?>
+        <?php $id = $rs->getId()?>
+        <tr <?php if($i%2 != 0) echo 'class="odd"'?>>
+          <td><?php echo ++$i?></td>
+          <td>
+              <?php echo $rs->getType() ?> &raquo; <?php echo $rs->getParentCategoryName() ?> &raquo; <?php echo $rs->getCategoryName() ?><br><br>
+              <a href="<?php echo $sf_user->hasCredential('content-edit') ? url_for('content/edit?id='.$id) : '#'?>" title="Edit" class="action">
+                  <?php echo $rs ?>
+              </a>
+          </td>
+          <td><?php echo image_tag($rs->getCover(), array('style'=>'max-width:100px;max-height:80px;'))?></td>      
+          <td nowrap>
+              <?php if($rs->getIsFeaturedHome()) echo image_tag('icons/valid.png', array('align'=>'absmiddle')) ?> HomeFeatured<br>
+              <?php if($rs->getIsFeaturedHome1()) echo image_tag('icons/valid.png', array('align'=>'absmiddle')) ?> HomeTextbox<br>
+              <?php if($rs->getIsFeatured()) echo image_tag('icons/valid.png', array('align'=>'absmiddle')) ?> Branch1Featured<br>
+              <?php if($rs->getIsTop()) echo image_tag('icons/valid.png', array('align'=>'absmiddle')) ?> Top<br>
+              <?php if($rs->getIsDiscuss()) echo image_tag('icons/valid.png', array('align'=>'absmiddle')) ?> Discuss<br>
+              <?php if($rs->getAsk18()) echo image_tag('icons/valid.png', array('align'=>'absmiddle')) ?> Ask18<br>
+              <?php if($rs->getIsActive()) echo image_tag('icons/valid.png', array('align'=>'absmiddle')) ?> Active
+          </td>
+          <td nowrap>
+              Nb of views: <?php echo $rs->getNbViews() ?><br>        
+              Updated at: <?php echo $rs->getUpdatedAt() ?><br>
+              Created at: <?php echo $rs->getCreatedAt() ?><br>
+              Sort: <?php echo $rs->getSort() ?><br>
+              Updated by: <?php echo $rs->getAdmin() ?><br>
+              <?php if($rs->getAuthorShow()) echo link_to('Author: '.$rs->getAuthorId(), 'user/index?id='.$rs->getAuthorId(), array('target'=>'_blank'))?>
+          </td>
+          <td nowrap width="20%">
+              <a href="<?php echo url_for('image/index?objectId='.$id.'&objectType=content')?>" class="action">Pics</a> | 
+              <?php if($sf_user->hasCredential('content-edit')):?>
+                  <a href="<?php echo url_for('image/new?objectId='.$id.'&objectType=content')?>" class="action">Add pic</a> 
+              <?php endif;?>
+              <br clear="all">
+  
+              <?php if($rs->getIsDiscuss() && $sf_user->hasCredential('discuss')):?>
+                  <a href="<?php echo url_for('discuss/index?objectId='.$id)?>" class="action">Discusses (<?php echo $rs->getNbDiscuss()?>)</a> | 
+              <?php elseif($sf_user->hasCredential('comment')):?>
+                  <a href="<?php echo url_for('comment/index?objectId='.$id)?>" class="action">Comments (<?php echo $rs->getNbComment()?>)</a> | 
+              <?php endif;?>
+              
+              <?php if($rs->getQuizId() && $sf_user->hasCredential('quiz')):?>
+                  <a href="<?php echo url_for('quizQuestion/index?quizId='.$rs->getQuizId())?>" class="action">Quiz</a>                
+              <?php endif;?>
+              <br clear="all">
+              
+              <?php if($sf_user->hasCredential('content-edit')):?>                
+                  <?php include_partial('global/featurate', array('module'=>'content', 'rs'=>$rs));?>
+                  <?php include_partial('global/activate', array('module'=>'content', 'rs'=>$rs));?>
+                  <a href="<?php echo url_for('content/edit?id='.$id)?>" title="Edit" class="action">Edit</a> | 
+              <?php endif?>
+              <?php if($sf_user->hasCredential('content-delete')):?>
+                  <a onclick="return confirm('Are you sure?')" href="<?php echo url_for('content/delete?id='.$id)?>" title="Delete" class="action">Delete</a>
+              <?php endif?>
+          </td>
+        </tr>
     <?php endforeach; ?>
+    <tr><td colspan="10"><?php echo pager($pager, 'content/index?categoryId='.$sf_params->get('categoryId').'&keyword='.$sf_params->get('keyword'))?></td></tr>
   </tbody>
 </table>
-<br clear="all">
-<?php echo pager($pager, 'content/index')?>

@@ -12,25 +12,20 @@ class PageForm extends BasePageForm
 {
   public function configure()
   {
-      unset($this['id'],$this['route'],$this['created_at']);
+      unset($this['route']);
     
     	# WIDGETS
     	$choices = myTools::getArray('page');
-    	$this->widgetSchema['type']        = new sfWidgetFormChoice(array('choices'=>$choices), array('style'=>'width:400px;height:24px;'));
+    	$this->widgetSchema['type']        = new sfWidgetFormChoice(array('choices'=>$choices), array());
     	$this->widgetSchema['category_id'] = new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Category'), 'add_empty' => false));
-      $this->widgetSchema['title']       = new sfWidgetFormInputText(array(), array('style'=>'width:400px;'));
+      $this->widgetSchema['title']       = new sfWidgetFormInputText(array(), array());
     	$this->widgetSchema['content']     = new sfWidgetFormFCKEditor(array('width'=>800, 'height'=>400));
-    	$this->widgetSchema['sort']   		 = new sfWidgetFormInputText(array(), array('style'=>'width:40px;'));
-    	$this->widgetSchema['is_active']   = new sfWidgetFormInputCheckbox(array(), array('value'=>1));
-    	
     	  	
     	# VALIDATORS
     	$this->validatorSchema['type']  	    = new sfValidatorPass();
     	$this->validatorSchema['category_id'] = new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Category'), 'required' => false));
     	$this->validatorSchema['title']       = new sfValidatorString(array(), array());
     	$this->validatorSchema['content']  	  = new sfValidatorPass();
-    	$this->validatorSchema['sort']  	    = new sfValidatorPass();
-    	$this->validatorSchema['is_active']   = new sfValidatorPass();
   }
 
   

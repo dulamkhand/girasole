@@ -18,8 +18,6 @@ class BannerTable extends Doctrine_Table
     }
     
     
-    
-    
     public function doExecute($params = array())
     {
         $q = Doctrine_Query::create()->select('*');
@@ -58,6 +56,12 @@ class BannerTable extends Doctrine_Table
     }
     
   
+    public function doCount($params = array())
+    {
+        $q = Doctrine_Query::create()->select('count(id)');
+        $q = self::params($q, $params);
+        return $q->count();
+    }
     
     public function getPager($params = array(), $page=1)
     {
@@ -76,7 +80,12 @@ class BannerTable extends Doctrine_Table
     private function params($q, $params = array())
     {
         $q->from('Banner');
-        $q->where('id <> ? ', (isset($params['id']) && $params['id'] ? $params['id'] : 0));
+        
+        if(isset($params['id']) && $params['id'] != null)
+            $q->andWhere('id= ?', $params['id']);
+        
+        if(isset($params['route']) && $params['route'] != null)
+            $q->andWhere('route= ?', $params['route']);
   
         if(isset($params['position']) && $params['position'])
             $q->andWhere('position= ?', $params['position']);
@@ -87,10 +96,14 @@ class BannerTable extends Doctrine_Table
         if(isset($params['isActive']) && in_array($params['isActive'], array('0', '1'))) 
             $q->andWhere('is_active = ?', $params['isActive']);
         
-        $limit = isset($params['limit']) ? $params['limit'] : sfConfig::get('app_pager', 30);
+        $limit = isset($params['limit']) ? $params['limit'] : sfConfig::get('app_limit', 30);
         $q->limit($limit);
         
-        $q->orderBy('sort DESC, created_at ASC');
+        $order = isset($params['order']) ? $params['order'] : 'sort DESC, created_at ASC';
+        $q->orderBy($order);
+  
+        if(isset($params['groupBy']) && $params['groupBy']) 
+            $q->groupBy($params['groupBy']);
   
         return $q;
     }

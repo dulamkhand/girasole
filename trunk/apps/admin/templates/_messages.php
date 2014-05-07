@@ -18,8 +18,8 @@
   </div>
   <?php endif ?>
 
-  <?php if ($sf_user->hasFlash('info')): ?>
-    <div class="info-message"><?php echo $sf_user->getFlash('info')?></div>
+  <?php if ($sf_user->hasFlash('flash')): ?>
+      <div class="info-message"><?php echo $sf_user->getFlash('flash')?></div>
   <?php endif; ?>
 
 </div>

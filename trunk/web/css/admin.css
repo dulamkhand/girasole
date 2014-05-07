@@ -1,0 +1,108 @@
+html, *{margin:0;padding:0;color:#444;}
+body{font-family: Georgia,"Times New Roman",Times,serif;color:#444;font-size:12px;margin:0;padding:0;background:url(../images/admin-bg.a.jpg) repeat;}
+img, div,a {behavior: url(./iepngfix.htc) }
+p{padding:2px;}
+
+h1 {font-size:20px;margin-bottom:20px;border-bottom:3px double #666666;padding-bottom:7px;}
+h2{font-size:18px;}
+h3{font-size:16px;margin-bottom:10px;}
+
+form{padding:0px;margin:0px;}
+fieldset {display:block;padding:15px 5px;line-height:20px;margin-bottom:20px;}
+legend {font-size:12px;font-weight:bold;padding:3px 10px;}
+label {cursor:pointer;}
+
+a, a:visited{text-decoration:none;font-size:12px;line-height:20px;color:darkgreen;}
+a.action{font-style:italic;}
+
+img{border:0;margin:1px;}
+
+input {padding:3px;height:26px;border:1px solid #84B78D;width:394px;}
+input[type=submit]{cursor:pointer;font-weight:bold;padding:0;height:28px;background:green;color:#fff;width:85px;}
+input[type=button]{cursor:pointer;font-weight:bold;padding:5px 10px;text-decoration:none;background:green;color:#fff;}
+input[type=checkbox]{margin:-2px 5px 0 0;width:16px;padding:0;float:left;}
+textarea {padding:5px;width:600px;height:120px;overflow:auto;border:1px solid #84B78D;}
+
+select {width:400px;height:28px;padding:4px;border:1px solid #84B78D;}
+select optgroup{text-transform:uppercase;padding:0;}
+select option{text-transform:;padding:2px 0px;background:#FFF;}
+
+ul{list-style-type:none;margin:0;padding:0;}
+ul li{margin:0;padding:0;}
+
+.button, .buttonSmall, .buttonBig {cursor:pointer;float:left;font-weight:bold;margin-left:5px;padding:8px 15px;}
+.buttonSmall {padding:1px 10px;}
+.buttonBig {padding:10px 20px;}
+
+.check{text-align:left;padding:0 5px;min-width:200px;float:left;border:0;}
+.description{color:#888;font-size:12px;line-height:26px;}
+
+#help ul{list-style:none;line-height: 25px;margin-left: 10px;}
+#help li{padding: 5px;}
+.help {background:url(../images/icons/question.jpg) no-repeat;border:1px solid #aaa;padding-left:20px;float:right;width:150px;}
+
+ul.error_list, ul.radio_list {list-style-type:none;}
+ul.error_list li, ul.radio_list li {color:red; font-size:10px; font-weight:normal;}
+ul.checkbox_list {width:600px;max-height:300px;overflow-y:scroll;clear:both;}
+ul.checkbox_list li {clear:both;}
+
+.border1ccc{border:1px solid #ccc;}
+
+a.title, a.title:link, a.title:visited, a.title:hover {color:#444444;font-size:12px;font-weight:bold;}
+a.title:hover {text-decoration:underline;}
+
+.left{float:left}
+.right{float:right}
+#content{float:left;margin:0 0 10px 0px;padding:20px 5px;background:;width:98%;}
+.flash{width:98%;background:lightblue;padding:10px;border:1px solid #65BDD4;margin:0 0 10px 0;width:400px;}
+
+/*********************
+		Menu
+*********************/
+#topmenu{margin:0;width:100%;float:left;voice-family:inherit;}
+#topmenu ul{list-style:none;line-height:28px;}
+#topmenu li{float:left;margin:0 1px 0 0;}
+#topmenu a{padding:7px 12px;text-decoration:none;background:green;color:#fff;}
+#topmenu a:hover{background:#24A424;}
+#topmenu .current a, #topmenu .current a:hover, #topmenu .current a:visited{color:#fff;background:#24A424;}
+
+#submenu{margin:0;width:100%;float:left;voice-family:inherit;}
+#submenu a{padding:5px 12px;text-decoration:none;background:#FFF;color:darkgreen;margin:0;float:left;border:1px solid green;border-left:0;}
+#submenu a:hover{background:#24A424;color:#fff;}
+#submenu a.current{background:#24A424;color:#fff;}
+
+/*********************
+		Pager
+*********************/
+.pager{margin:5px 0;width:100%;}
+.pager .total{float:right;}
+.pager a{padding:5px 10px;margin:1px;background:#24A424;text-decoration:none;color:#fff;border:1px solid green;}
+.pager a.current{background:green;}
+
+/*********************
+		Footer
+*********************/
+#footer{clear:both;padding:10px;margin-top:10px;border:0;border-top:3px double #ccc;}
+#footer #developedBy{float:right;}
+#footer #developedBy a{text-decoration: none;}
+#footer #copyright{float:left;padding:3px;}
+
+/*********************
+		table
+*********************/
+table td{border:1px solid #E3E3E3;border-top:0;border-left:0;padding:0px 5px;border-collapse:collapse;border-spacing:0;table-layout:automatic;}
+table th{vertical-align:middle;border:1px solid #DADADA;padding:0px 5px;}
+table tr.odd{background-color:#F0F0F0;}
+table tr{background-color:#fff;padding:0;}
+table.clean td, table.clean th{border:0;}
+table thead th{background:#dedede;}
+
+hr.gradient{
+	border:0;
+	height:1px;
+	margin:0 0 10px 0;
+  background:linear-gradient(left, white 3%, lightgreen 20%, green 50%, lightgreen 80%, white 97%);
+  background:-moz-linear-gradient(left, white 3%, lightgreen 20%, green 50%, lightgreen 80%, white 97%);
+  background:-webkit-linear-gradient(left, white 3%, lightgreen 20%, green 50%, lightgreen 80%, white 97%);
+  background:-o-linear-gradient(left, white 3%, lightgreen 20%, green 50%, lightgreen 80%, white 97%);
+}

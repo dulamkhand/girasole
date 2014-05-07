@@ -18,12 +18,14 @@ abstract class BaseSubscriberForm extends BaseFormDoctrine
       'id'         => new sfWidgetFormInputHidden(),
       'email'      => new sfWidgetFormInputText(),
       'created_at' => new sfWidgetFormDateTime(),
+      'nb_love'    => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
       'id'         => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'email'      => new sfValidatorString(array('max_length' => 255)),
       'created_at' => new sfValidatorDateTime(),
+      'nb_love'    => new sfValidatorInteger(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('subscriber[%s]');

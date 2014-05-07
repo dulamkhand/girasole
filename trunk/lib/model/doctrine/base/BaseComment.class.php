@@ -12,26 +12,35 @@ Doctrine_Manager::getInstance()->bindComponent('Comment', 'doctrine');
  * @property integer $object_id
  * @property timestamp $created_at
  * @property integer $user_id
+ * @property string $avator
  * @property string $ip_address
  * @property string $name
  * @property string $text
+ * @property integer $nb_love
+ * @property boolean $deactivated
  * 
  * @method integer   getId()          Returns the current record's "id" value
  * @method string    getObjectType()  Returns the current record's "object_type" value
  * @method integer   getObjectId()    Returns the current record's "object_id" value
  * @method timestamp getCreatedAt()   Returns the current record's "created_at" value
  * @method integer   getUserId()      Returns the current record's "user_id" value
+ * @method string    getAvator()      Returns the current record's "avator" value
  * @method string    getIpAddress()   Returns the current record's "ip_address" value
  * @method string    getName()        Returns the current record's "name" value
  * @method string    getText()        Returns the current record's "text" value
+ * @method integer   getNbLove()      Returns the current record's "nb_love" value
+ * @method boolean   getDeactivated() Returns the current record's "deactivated" value
  * @method Comment   setId()          Sets the current record's "id" value
  * @method Comment   setObjectType()  Sets the current record's "object_type" value
  * @method Comment   setObjectId()    Sets the current record's "object_id" value
  * @method Comment   setCreatedAt()   Sets the current record's "created_at" value
  * @method Comment   setUserId()      Sets the current record's "user_id" value
+ * @method Comment   setAvator()      Sets the current record's "avator" value
  * @method Comment   setIpAddress()   Sets the current record's "ip_address" value
  * @method Comment   setName()        Sets the current record's "name" value
  * @method Comment   setText()        Sets the current record's "text" value
+ * @method Comment   setNbLove()      Sets the current record's "nb_love" value
+ * @method Comment   setDeactivated() Sets the current record's "deactivated" value
  * 
  * @package    vogue
  * @subpackage model
@@ -87,6 +96,15 @@ abstract class BaseComment extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 4,
              ));
+        $this->hasColumn('avator', 'string', 255, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 255,
+             ));
         $this->hasColumn('ip_address', 'string', 15, array(
              'type' => 'string',
              'fixed' => 0,
@@ -113,6 +131,24 @@ abstract class BaseComment extends sfDoctrineRecord
              'notnull' => true,
              'autoincrement' => false,
              'length' => '',
+             ));
+        $this->hasColumn('nb_love', 'integer', 4, array(
+             'type' => 'integer',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'default' => '0',
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 4,
+             ));
+        $this->hasColumn('deactivated', 'boolean', null, array(
+             'type' => 'boolean',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
              ));
     }
 

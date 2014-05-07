@@ -17,6 +17,21 @@ class CommentTable extends Doctrine_Table
         return Doctrine_Core::getTable('Comment');
     }
     
+    public function updateNbLove($id, $nbLove)
+    {
+        $q = Doctrine_Query::create()->update('Comment')
+            ->set('nb_love', $nbLove)
+            ->where('id = ?', $id)
+            ->execute();
+    }
+    
+    public function updateDeactivated($deactivated, $ids)
+    {
+        $q = Doctrine_Query::create()->update('Comment')
+                ->set('deactivated', $deactivated)
+                ->whereIn('id', $ids)
+                ->execute();
+    }
     
     
     public function doExecute($params = array())
@@ -30,7 +45,7 @@ class CommentTable extends Doctrine_Table
   
     public function doFetchArray($params = array())
     {
-        $q = Doctrine_Query::create()->select('id, object_type, object_id, text, ip_address, user_id, name, created_at');
+        $q = Doctrine_Query::create()->select('*');
         $q = self::params($q, $params);
                 
         return $q->fetchArray();
@@ -57,6 +72,12 @@ class CommentTable extends Doctrine_Table
     }
     
   
+    public function doCount($params = array())
+    {
+        $q = Doctrine_Query::create()->select('count(id)');
+        $q = self::params($q, $params);
+        return $q->count();
+    }
     
     public function getPager($params = array(), $page=1)
     {
@@ -76,19 +97,22 @@ class CommentTable extends Doctrine_Table
     {
         $q->from('Comment');
   
-        if(isset($params['id']) && $params['id'])
+        if(isset($params['id']) && $params['id'] != null)
             $q->andWhere('id= ?', $params['id']);
-
-        if(isset($params['objectType']) && $params['objectType'])
+        
+        if(isset($params['ids']) && $params['ids'] != null)
+            $q->andWhereIn('id', $params['ids']);
+                
+        if(isset($params['objectType']) && $params['objectType'] != null)
             $q->andWhere('object_type= ?', $params['objectType']);
             
-        if(isset($params['objectId']) && $params['objectId'])
+        if(isset($params['objectId']) && $params['objectId'] != null)
             $q->andWhere('object_id= ?', $params['objectId']);
             
-        if(isset($params['name']) && $params['name'])
+        if(isset($params['name']) && $params['name'] != null)
             $q->andWhere('name= ?', $params['name']);
             
-        if(isset($params['ip_address']) && $params['ip_address'])
+        if(isset($params['ip_address']) && $params['ip_address'] != null)
             $q->andWhere('ip_address= ?', $params['ip_address']);
             
         if(isset($params['text']) && $params['text'])
@@ -96,12 +120,28 @@ class CommentTable extends Doctrine_Table
 
         if(isset($params['keyword']) && $params['keyword'])
             $q->andWhere('text LIKE ? OR name LIKE ?', array('%'.$params['keyword'].'%', '%'.$params['keyword'].'%'));
+
+        // deactivated
+        if(isset($params['deactivated'])) {
+            if($params['deactivated'] != "all" && in_array($params['deactivated'], array('0', '1'))) // all ued filter hiihgui
+                $q->andWhere('deactivated = ?', $params['deactivated']);
+        } else {
+            $q->andWhere('deactivated <> ?', 1); // default
+        }
+
+        // group, offset, limit, order
+        if(isset($params['groupBy']) && $params['groupBy'])
+            $q->groupBy($params['groupBy']);        
+
+        if(isset($params['offset']) && $params['offset'])
+            $q->offset($params['offset']);
         
-        $limit = isset($params['limit']) ? $params['limit'] : sfConfig::get('app_pager', 30);
+        $limit = isset($params['limit']) ? $params['limit'] : sfConfig::get('app_limit', 30);
         $q->limit($limit);
-        
-        $q->orderBy('created_at ASC');
   
+        $order = isset($params['orderBy']) ? $params['orderBy'] : 'created_at ASC';
+        $q->orderBy($order);
+
         return $q;
     }
 }

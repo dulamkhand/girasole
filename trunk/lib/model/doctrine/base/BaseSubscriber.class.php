@@ -10,13 +10,16 @@ Doctrine_Manager::getInstance()->bindComponent('Subscriber', 'doctrine');
  * @property integer $id
  * @property string $email
  * @property timestamp $created_at
+ * @property integer $nb_love
  * 
  * @method integer    getId()         Returns the current record's "id" value
  * @method string     getEmail()      Returns the current record's "email" value
  * @method timestamp  getCreatedAt()  Returns the current record's "created_at" value
+ * @method integer    getNbLove()     Returns the current record's "nb_love" value
  * @method Subscriber setId()         Sets the current record's "id" value
  * @method Subscriber setEmail()      Sets the current record's "email" value
  * @method Subscriber setCreatedAt()  Sets the current record's "created_at" value
+ * @method Subscriber setNbLove()     Sets the current record's "nb_love" value
  * 
  * @package    vogue
  * @subpackage model
@@ -53,6 +56,16 @@ abstract class BaseSubscriber extends sfDoctrineRecord
              'notnull' => true,
              'autoincrement' => false,
              'length' => 25,
+             ));
+        $this->hasColumn('nb_love', 'integer', 4, array(
+             'type' => 'integer',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'default' => '0',
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 4,
              ));
     }
 

@@ -1,6 +1,6 @@
-Aphorism:
+Admin:
   connection: doctrine
-  tableName: aphorism
+  tableName: admin
   columns:
     id:
       type: integer(4)
@@ -8,22 +8,36 @@ Aphorism:
       unsigned: false
       primary: true
       autoincrement: true
-    text:
-      type: string()
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    source:
+    email:
       type: string(255)
       fixed: false
       unsigned: false
       primary: false
       notnull: true
       autoincrement: false
-    sort:
-      type: integer(4)
+    password:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    mod_permissions:
+      type: string()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    cat_permissions:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    is_active:
+      type: boolean
       fixed: false
       unsigned: false
       primary: false
@@ -36,6 +50,27 @@ Aphorism:
       primary: false
       notnull: true
       autoincrement: false
+    updated_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0000-00-00 00:00:00'
+      notnull: true
+      autoincrement: false
+    logged_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0000-00-00 00:00:00'
+      notnull: true
+      autoincrement: false
+  relations:
+    Content:
+      local: id
+      foreign: admin_id
+      type: many
 Banner:
   connection: doctrine
   tableName: banner
@@ -67,8 +102,15 @@ Banner:
       primary: false
       notnull: true
       autoincrement: false
+    route:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
     target:
-      type: integer(1)
+      type: boolean
       fixed: false
       unsigned: false
       primary: false
@@ -104,7 +146,7 @@ Banner:
       notnull: false
       autoincrement: false
     is_active:
-      type: integer(1)
+      type: boolean
       fixed: false
       unsigned: false
       primary: false
@@ -116,6 +158,14 @@ Banner:
       fixed: false
       unsigned: false
       primary: false
+      notnull: true
+      autoincrement: false
+    nb_love:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
       notnull: true
       autoincrement: false
 Category:
@@ -142,7 +192,28 @@ Category:
       primary: false
       notnull: true
       autoincrement: false
+    parent_name:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
     name:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    route:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    position:
       type: string(255)
       fixed: false
       unsigned: false
@@ -151,6 +222,34 @@ Category:
       autoincrement: false
     sort:
       type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    backcolor:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    forecolor:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    is_active:
+      type: boolean
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    updated_at:
+      type: timestamp(25)
       fixed: false
       unsigned: false
       primary: false
@@ -194,6 +293,13 @@ Comment:
       primary: false
       notnull: true
       autoincrement: false
+    avator:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
     ip_address:
       type: string(15)
       fixed: false
@@ -215,6 +321,95 @@ Comment:
       primary: false
       notnull: true
       autoincrement: false
+    nb_love:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+    deactivated:
+      type: boolean
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+CommentMirror:
+  connection: doctrine
+  tableName: comment_mirror
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: false
+    object_type:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    object_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    user_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    avator:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    ip_address:
+      type: string(15)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    name:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    text:
+      type: string()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    nb_love:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
 Content:
   connection: doctrine
   tableName: content
@@ -231,6 +426,20 @@ Content:
       unsigned: false
       primary: false
       notnull: false
+      autoincrement: false
+    parent_category_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    parent_category_name:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
       autoincrement: false
     category_id:
       type: integer(4)
@@ -252,6 +461,13 @@ Content:
       unsigned: false
       primary: false
       notnull: false
+      autoincrement: false
+    route:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
       autoincrement: false
     cover:
       type: string(255)
@@ -288,6 +504,13 @@ Content:
       primary: false
       notnull: false
       autoincrement: false
+    source_link:
+      type: string(500)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
     sort:
       type: integer(4)
       fixed: false
@@ -303,35 +526,107 @@ Content:
       primary: false
       notnull: false
       autoincrement: false
+    nb_love:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+    nb_comment:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+    nb_discuss:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
     is_active:
-      type: integer(1)
-      fixed: false
-      unsigned: false
-      primary: false
-      default: '1'
-      notnull: false
-      autoincrement: false
-    is_featured:
-      type: integer(1)
-      fixed: false
-      unsigned: false
-      primary: false
-      default: '1'
-      notnull: false
-      autoincrement: false
-    view_list:
-      type: string(255)
+      type: boolean
       fixed: false
       unsigned: false
       primary: false
       notnull: true
       autoincrement: false
-    view_detail:
-      type: string(255)
+    is_new:
+      type: boolean
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    is_top:
+      type: boolean
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    is_featured:
+      type: boolean
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    is_featured_home:
+      type: boolean
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    is_featured_home1:
+      type: boolean
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    is_discuss:
+      type: boolean
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+    ask18:
+      type: boolean
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    quiz_id:
+      type: integer(4)
       fixed: false
       unsigned: false
       primary: false
       notnull: false
+      autoincrement: false
+    poll_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    coupon_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
       autoincrement: false
     created_at:
       type: timestamp(25)
@@ -340,9 +635,71 @@ Content:
       primary: false
       notnull: true
       autoincrement: false
-Designer:
+    updated_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0000-00-00 00:00:00'
+      notnull: true
+      autoincrement: false
+    admin_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    author_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    author_show:
+      type: boolean
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    photographer_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    photographer_show:
+      type: boolean
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    keywords:
+      type: string()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    related_ids:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    Admin:
+      local: admin_id
+      foreign: id
+      type: one
+Coupon:
   connection: doctrine
-  tableName: designer
+  tableName: coupon
   columns:
     id:
       type: integer(4)
@@ -350,35 +707,128 @@ Designer:
       unsigned: false
       primary: true
       autoincrement: true
-    name:
+    file:
       type: string(255)
       fixed: false
       unsigned: false
       primary: false
       notnull: true
       autoincrement: false
-    first_letter:
+    route:
       type: string(255)
       fixed: false
       unsigned: false
       primary: false
       notnull: true
       autoincrement: false
-    photo:
+    title:
       type: string(255)
       fixed: false
       unsigned: false
       primary: false
       notnull: true
       autoincrement: false
-    biography:
-      type: string()
+    body:
+      type: string(255)
       fixed: false
       unsigned: false
       primary: false
       notnull: true
       autoincrement: false
-    sort:
+    image:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    nb_print:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    is_active:
+      type: boolean
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    CouponPrint:
+      local: id
+      foreign: coupon_id
+      type: many
+CouponPrint:
+  connection: doctrine
+  tableName: coupon_print
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    coupon_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    number:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    ip:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    Coupon:
+      local: coupon_id
+      foreign: id
+      type: one
+Discuss:
+  connection: doctrine
+  tableName: discuss
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    object_type:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    object_id:
       type: integer(4)
       fixed: false
       unsigned: false
@@ -387,6 +837,137 @@ Designer:
       autoincrement: false
     created_at:
       type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    user_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    avator:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    ip_address:
+      type: string(15)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    name:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    text:
+      type: string()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    nb_love:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+    deactivated:
+      type: boolean
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+DiscussMirror:
+  connection: doctrine
+  tableName: discuss_mirror
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: false
+    object_type:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    object_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    user_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    avator:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    ip_address:
+      type: string(15)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    name:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    text:
+      type: string()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    nb_love:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+    deactivated:
+      type: boolean
       fixed: false
       unsigned: false
       primary: false
@@ -452,7 +1033,7 @@ Image:
       notnull: true
       autoincrement: false
     iscover:
-      type: integer(1)
+      type: boolean
       fixed: false
       unsigned: false
       primary: false
@@ -460,6 +1041,59 @@ Image:
       autoincrement: false
     created_at:
       type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    nb_love:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+Love:
+  connection: doctrine
+  tableName: love
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    object_type:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    object_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    user_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    ip_address:
+      type: string(15)
       fixed: false
       unsigned: false
       primary: false
@@ -525,10 +1159,18 @@ Page:
       notnull: true
       autoincrement: false
     is_active:
-      type: integer(1)
+      type: boolean
       fixed: false
       unsigned: false
       primary: false
+      notnull: true
+      autoincrement: false
+    nb_love:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
       notnull: true
       autoincrement: false
 Poll:
@@ -541,14 +1183,7 @@ Poll:
       unsigned: false
       primary: true
       autoincrement: true
-    object_type:
-      type: string(255)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    object_id:
+    content_id:
       type: integer(4)
       fixed: false
       unsigned: false
@@ -556,6 +1191,243 @@ Poll:
       notnull: true
       autoincrement: false
     title:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    route:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    body:
+      type: string()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    options_addable:
+      type: boolean
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    multiple_choice:
+      type: boolean
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    sort:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    is_active:
+      type: boolean
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    is_featured:
+      type: boolean
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    nb_love:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+  relations:
+    PollOption:
+      local: id
+      foreign: poll_id
+      type: many
+PollOption:
+  connection: doctrine
+  tableName: poll_option
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    poll_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    route:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    body:
+      type: string()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    nb_vote:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    user_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    ip:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    is_active:
+      type: boolean
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    sort:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    nb_love:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    Poll:
+      local: poll_id
+      foreign: id
+      type: one
+    PollOptionVote:
+      local: id
+      foreign: option_id
+      type: many
+PollOptionVote:
+  connection: doctrine
+  tableName: poll_option_vote
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    option_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    user_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    ip:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    User:
+      local: user_id
+      foreign: id
+      type: one
+    PollOption:
+      local: option_id
+      foreign: id
+      type: one
+Quiz:
+  connection: doctrine
+  tableName: quiz
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    content_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    title:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    route:
       type: string(255)
       fixed: false
       unsigned: false
@@ -576,15 +1448,22 @@ Poll:
       primary: false
       notnull: true
       autoincrement: false
+    nb_love:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
     is_active:
-      type: integer(1)
+      type: boolean
       fixed: false
       unsigned: false
       primary: false
       notnull: true
       autoincrement: false
     is_featured:
-      type: integer(1)
+      type: boolean
       fixed: false
       unsigned: false
       primary: false
@@ -597,9 +1476,251 @@ Poll:
       primary: false
       notnull: true
       autoincrement: false
-Runway:
+  relations:
+    QuizAnswer:
+      local: id
+      foreign: quiz_id
+      type: many
+    QuizQuestion:
+      local: id
+      foreign: quiz_id
+      type: many
+QuizAnswer:
   connection: doctrine
-  tableName: runway
+  tableName: quiz_answer
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    quiz_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    title:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    route:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    image:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    body:
+      type: string()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    point_start:
+      type: float()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    point_end:
+      type: float()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    is_active:
+      type: boolean
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    sort:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    nb_love:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    Quiz:
+      local: quiz_id
+      foreign: id
+      type: one
+QuizOption:
+  connection: doctrine
+  tableName: quiz_option
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    question_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    route:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    body:
+      type: string()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    point:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    sort:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    nb_love:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    QuizQuestion:
+      local: question_id
+      foreign: id
+      type: one
+QuizQuestion:
+  connection: doctrine
+  tableName: quiz_question
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    quiz_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    route:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    number:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    body:
+      type: string()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    is_active:
+      type: boolean
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    sort:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    nb_love:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    Quiz:
+      local: quiz_id
+      foreign: id
+      type: one
+    QuizOption:
+      local: id
+      foreign: question_id
+      type: many
+Quote:
+  connection: doctrine
+  tableName: quote
   columns:
     id:
       type: integer(4)
@@ -614,64 +1735,36 @@ Runway:
       primary: false
       notnull: true
       autoincrement: false
-    cover:
+    route:
       type: string(255)
       fixed: false
       unsigned: false
       primary: false
       notnull: true
       autoincrement: false
-    season_id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    season_name:
+    image:
       type: string(255)
       fixed: false
       unsigned: false
       primary: false
       notnull: true
       autoincrement: false
-    designer_id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    designer_name:
+    body:
       type: string(255)
       fixed: false
       unsigned: false
       primary: false
       notnull: true
       autoincrement: false
-    is_featured:
-      type: integer(1)
+    author:
+      type: string(255)
       fixed: false
       unsigned: false
       primary: false
       notnull: true
       autoincrement: false
-    is_active:
-      type: integer(1)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    sort:
+    day:
       type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    date:
-      type: date(25)
       fixed: false
       unsigned: false
       primary: false
@@ -706,6 +1799,14 @@ Subscriber:
       fixed: false
       unsigned: false
       primary: false
+      notnull: true
+      autoincrement: false
+    nb_love:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
       notnull: true
       autoincrement: false
 User:
@@ -746,6 +1847,20 @@ User:
       primary: false
       notnull: true
       autoincrement: false
+    fullname:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    about:
+      type: string()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
     email:
       type: string(255)
       fixed: false
@@ -760,8 +1875,22 @@ User:
       primary: false
       notnull: true
       autoincrement: false
+    avator:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    image:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
     is_active:
-      type: integer(1)
+      type: boolean
       fixed: false
       unsigned: false
       primary: false
@@ -798,89 +1927,21 @@ User:
       notnull: false
       autoincrement: false
     is_admin:
-      type: integer(1)
+      type: boolean
       fixed: false
       unsigned: false
       primary: false
       notnull: false
       autoincrement: false
-Video:
-  connection: doctrine
-  tableName: video
-  columns:
-    id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: true
-      autoincrement: true
-    object_type:
+    ip:
       type: string(255)
       fixed: false
       unsigned: false
       primary: false
       notnull: true
       autoincrement: false
-    object_id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    title:
-      type: string(255)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    description:
-      type: string()
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    thumb:
-      type: string(255)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    embed:
-      type: string(255)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    sort:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    iscover:
-      type: integer(1)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    is_featured:
-      type: integer(1)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    created_at:
-      type: timestamp(25)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
+  relations:
+    PollOptionVote:
+      local: id
+      foreign: user_id
+      type: many

@@ -15,19 +15,33 @@ abstract class BaseCategoryForm extends BaseFormDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'id'        => new sfWidgetFormInputHidden(),
-      'type'      => new sfWidgetFormInputText(),
-      'parent_id' => new sfWidgetFormInputText(),
-      'name'      => new sfWidgetFormInputText(),
-      'sort'      => new sfWidgetFormInputText(),
+      'id'          => new sfWidgetFormInputHidden(),
+      'type'        => new sfWidgetFormInputText(),
+      'parent_id'   => new sfWidgetFormInputText(),
+      'parent_name' => new sfWidgetFormInputText(),
+      'name'        => new sfWidgetFormInputText(),
+      'route'       => new sfWidgetFormInputText(),
+      'position'    => new sfWidgetFormInputText(),
+      'sort'        => new sfWidgetFormInputText(),
+      'backcolor'   => new sfWidgetFormInputText(),
+      'forecolor'   => new sfWidgetFormInputText(),
+      'is_active'   => new sfWidgetFormInputCheckbox(),
+      'updated_at'  => new sfWidgetFormDateTime(),
     ));
 
     $this->setValidators(array(
-      'id'        => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'type'      => new sfValidatorString(array('max_length' => 255)),
-      'parent_id' => new sfValidatorInteger(),
-      'name'      => new sfValidatorString(array('max_length' => 255)),
-      'sort'      => new sfValidatorInteger(),
+      'id'          => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+      'type'        => new sfValidatorString(array('max_length' => 255)),
+      'parent_id'   => new sfValidatorInteger(),
+      'parent_name' => new sfValidatorString(array('max_length' => 255)),
+      'name'        => new sfValidatorString(array('max_length' => 255)),
+      'route'       => new sfValidatorString(array('max_length' => 255)),
+      'position'    => new sfValidatorString(array('max_length' => 255)),
+      'sort'        => new sfValidatorInteger(),
+      'backcolor'   => new sfValidatorString(array('max_length' => 255)),
+      'forecolor'   => new sfValidatorString(array('max_length' => 255)),
+      'is_active'   => new sfValidatorBoolean(),
+      'updated_at'  => new sfValidatorDateTime(),
     ));
 
     $this->widgetSchema->setNameFormat('category[%s]');

@@ -7,7 +7,6 @@ class ImageTable extends Doctrine_Table
     {
         $q = Doctrine_Query::create()->select('*');
         $q = self::params($q, $params);
-        
         return $q->execute();
     }
     
@@ -16,7 +15,6 @@ class ImageTable extends Doctrine_Table
     {
         $q = Doctrine_Query::create()->select('id, object_type, object_id, folder, filename, title, description');
         $q = self::params($q, $params);
-                
         return $q->fetchArray();
     }
     
@@ -41,6 +39,13 @@ class ImageTable extends Doctrine_Table
     }
     
   
+    public function doCount($params = array())
+    {
+        $q = Doctrine_Query::create()->select('count(id)');
+        $q = self::params($q, $params);
+        return $q->count();
+    }
+    
     
     public function getPager($params = array(), $page=1)
     {
@@ -54,14 +59,16 @@ class ImageTable extends Doctrine_Table
         
         return $pager;
     }
-    
+        
     
     private function params($q, $params = array())
     {
         $q->from('Image');
-        $q->where('id <> ? ', (isset($params['id']) && $params['id'] ? $params['id'] : 0));
+        
+        if(isset($params['id']) && $params['id'] != null)
+            $q->andWhere('id = ?', $params['id']);
   
-		if(isset($params['objectType']) && $params['objectType'])
+		    if(isset($params['objectType']) && $params['objectType'])
             $q->andWhere('object_type= ?', $params['objectType']);
 
         if(isset($params['objectId']) && $params['objectId'])
@@ -70,10 +77,18 @@ class ImageTable extends Doctrine_Table
         if(isset($params['keyword']) && $params['keyword'])
             $q->andWhere('title LIKE ? OR description LIKE ?', array('%'.$params['keyword'].'%', '%'.$params['keyword'].'%'));        
         
-        $limit = isset($params['limit']) ? $params['limit'] : sfConfig::get('app_pager', 30);
-        $q->limit($limit);
+        # group, order, limit
+        if(isset($params['groupBy']) && $params['groupBy']) 
+            $q->groupBy($params['groupBy']);
+
+        if(isset($params['offset']) && $params['offset'])
+            $q->offset($params['offset']);
         
-        $q->orderBy('sort DESC, created_at DESC');
+        $limit = isset($params['limit']) ? $params['limit'] : sfConfig::get('app_limit', 30);
+        $q->limit($limit);
+  
+        $order = isset($params['orderBy']) ? $params['orderBy'] : 'sort DESC, created_at DESC';
+        $q->orderBy($order);
   
         return $q;
     }

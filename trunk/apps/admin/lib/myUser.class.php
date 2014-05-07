@@ -5,11 +5,23 @@ class myUser extends sfBasicSecurityUser
     public function signIn($admin)
     {
         $this->setAuthenticated(true);
-        $this->addCredential("admin-broshure");
         
+        // module credentials
+        $rss = explode(";", $admin->getModPermissions());
+        foreach ($rss as $rs){
+            $this->addCredential($rs);  
+        }
+
+        // category permissions
+        $catPermissions = array();
+        $rss = explode(";", $admin->getCatPermissions());
+        foreach ($rss as $rs){
+            $catPermissions[] = $rs;
+        }
+        $this->setAttribute('catPermissions', $catPermissions);
+
         $this->setAttribute('id', $admin->getId());
-        $this->setAttribute('fullname', $admin->getFirstname().' '.$admin->getLastname());
-      
+        $this->setAttribute('email', $admin->getEmail());
     }
   
     public function signOut()
@@ -20,17 +32,22 @@ class myUser extends sfBasicSecurityUser
   
     public function getId()
     {
-       return $this->getAttribute('user_id', 0);
+       return $this->getAttribute('id', 0);
     }
 
-    public function getFullname()
+    public function getEmail()
     {
-        return $this->getAttribute('fullname', '');
+        return $this->getAttribute('email', '');
+    }
+    
+    public function getCatPermissions()
+    {
+        return $this->getAttribute('catPermissions', array());
     }
     
     public function getInstance()
     {
-       return Doctrine::getTable('User')->find($this->getId());
+       return Doctrine::getTable('Admin')->find($this->getId());
     }
 
 }

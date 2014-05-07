@@ -30,7 +30,7 @@ class companyActions extends sfActions
         {
             $admin = $form->getObject1();
             $this->getCompany()->signIn($admin);
-            $this->getCompany()->setFlash('success', 'Амжилттай нэвтэрлээ.', true);
+            $this->getCompany()->setFlash('flash', 'Successfully logged in.', true);
             $this->redirect("@homepage");
         }
     }
@@ -42,7 +42,7 @@ class companyActions extends sfActions
   public function executeLogout(sfWebRequest $request)
   {
     $this->getCompany()->signOut();
-    $this->getCompany()->setFlash('success', 'Холболт амжилттай тасарлаа.', true);
+    $this->getCompany()->setFlash('flash', 'Successfully logged out.', true);
     $this->redirect('@login');
   }
   
@@ -125,7 +125,7 @@ class companyActions extends sfActions
   
       try {
           $obj->delete();
-          $this->getCompany()->setFlash('success', 'Амжилттай устлаа.', true);
+          $this->getCompany()->setFlash('flash', 'Successfully deleted.', true);
       }catch (Exception  $e){}
   
       $this->redirect('company/list');
@@ -140,7 +140,7 @@ class companyActions extends sfActions
         @unlink(sfConfig::get('sf_upload_dir').'/avator/'.$company->getAvator());
         Doctrine::getTable('Image')->deleteByObject('company', $company->getId());
         $company->delete();
-        $this->getCompany()->setFlash('success', 'Амжилттай устлаа.', true);
+        $this->getCompany()->setFlash('flash', 'Successfully deleted.', true);
       }catch (Exception  $e){}
   
       $this->redirect('company/index');
@@ -153,7 +153,7 @@ class companyActions extends sfActions
     $company->setIsActive($request->getParameter('status'));
     $company->save();
 
-    $this->getCompany()->setFlash('success', 'Амжилттай хадгалагдлаа.', true);
+    $this->getCompany()->setFlash('flash', 'Successfully saved.', true);
     $this->redirect('company/index');
   }
 
@@ -174,7 +174,7 @@ class companyActions extends sfActions
     
           $company->save();
     
-          $this->getCompany()->setFlash('success', 'Амжилттай хадгалагдлаа.', true);
+          $this->getCompany()->setFlash('flash', 'Successfully saved.', true);
     
           $this->redirect('company/index');
       }
@@ -197,7 +197,7 @@ class companyActions extends sfActions
     
           $company->save();
     
-          $this->getCompany()->setFlash('success', 'Амжилттай хадгалагдлаа.', true);
+          $this->getCompany()->setFlash('flash', 'Successfully saved.', true);
     
           $this->redirect('company/index');
       }

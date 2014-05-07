@@ -2,44 +2,52 @@
 
 class myTools 
 {
-  /**
-   * author dulamkhand
-   * array functions
-   *
-   * @var unknown_type
-   */
-
-    public static $VIEW_LIST = array('list1'=>'list1', 'list2'=>'list2', 'list3'=>'list3', 'list4'=>'list4',);
-    public static $VIEW_DETAIL = array('detail1'=>'detail1', 'detail2'=>'detail2', 'detail3'=>'detail3', 'detail4'=>'detail4',);
-    public static $CATEGORY_TYPE = array('fashion'=>'Fashion', 'beauty'=>'Beauty', 'most'=>'Most');
-    public static $BANNER_POSITION = array('header'=>'Header 950x65px', 'home-hor'=>'Home horizintal 750px', 'sideright'=>'Home sideright 360px');
-    public static $ALPHA_EN = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
-    public static $ALPHA_MN = array('A','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','Ө','П','Р','С','Т','У','Ү','Х','Ц','Ч','Ш','Щ','Ъ','Ь','Э','Ю','Я','','');
-    public static $IMAGE_TYPE = array('content'=>'Content', 'runway'=>'Runway');
-    public static $VIDEO_TYPE = array('all'=>'All', 'content'=>'Content', 'runway'=>'Runway');
-    ################################################################################################################################################################
-    public static $VIDEO = array('content'=>'Content', 'page'=>'Page', 'other'=>'Бусад');
-    public static $TYPE = array();
-    public static $MENU = array();
-    public static $USER = array();
-    
+    public static $objectType = array('content'=>'Content');
+    public static $catPositions = array(2=>'2 - Босоо хажуу', 3=>'3 - Хөндлөн дунд', 4=>'4 - Хөндлөн доод', 5=>'5 - Хөндлөн доод',);
+    public static $catTypes = array('businesswoman'=>'businesswoman', 'housewife'=>'housewife', 'diva'=>'diva', 'teenage'=>'teenage', 'patriot'=>'patriot');
+    public static $catTypesMn = array('businesswoman'=>'АЖИЛ ХЭРЭГ', 'housewife'=>'АЙЛ ГЭРИЙН АМЬДРАЛ', 'diva'=>'ГОО САЙХАН', 'teenage'=>'ӨСВӨР ҮЕИЙНХЭН', 'patriot'=>'ЭХ ОРОНЧ');
+    public static $bannerPosition = array(
+                        'header'=>'Header 300px65px', 
+                        'home-featured'=>'Home featured 450px', 
+                        'home-hor'=>'Home horizintal 715px',
+                        'home-right'=>'Home right 270px', 
+                        'branch1-hor'=>'Branch1 horizintal 800px', 
+                        'branch1-left'=>'Branch1 left 450px', 
+                        'branch1-pos2'=>'Branch1 pos2 320px', 
+                        'branch1-right'=>'Branch1 right 170px', 
+                        'branch2-hor'=>'Branch2 horizintal 670px', 
+                        'branch2-right'=>'Branch2 right 300px', 
+                        'leaf1-left'=>'Leaf1 horizintal 650px',
+                        'leaf1-right'=>'Leaf1 right 325px',
+                        'footer-up'=>'Footer up 1000px',
+                        'sideright'=>'Sideright',
+                        'search'=>'Search 1000px');
+    public static $alphaEn = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+    public static $alphaMn = array('A','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','Ө','П','Р','С','Т','У','Ү','Х','Ц','Ч','Ш','Щ','Ъ','Ь','Э','Ю','Я','','');
+    public static $badWords = array('shit','crap','damn','bugger','jerk','asshole','bastard','douche','slut','fucking','fuck','bitch','cock','dick','darn','fag','piss','penis','pussy');
+    public static $reservedWords = array('whats the reserved words');
+    public static $modPermissions = array('content-view'=>'content-view', 
+              'content-edit'=>'content-edit', 'content-delete'=>'content-delete', 'comment'=>'comment', 
+              'discuss'=>'discuss', 'category'=>'category', 'banner'=>'banner', 'coupon'=>'coupon', 'quote'=>'quote', 
+              'quiz'=>'quiz', 'poll'=>'poll', 'subscriber'=>'subscriber', 'admin'=>'admin', 'user'=>'user', 'feedback'=>'feedback');
+              
+    public static $days = array(1=>1,2=>2,3=>3,4=>4,5=>5,6=>6,7=>7,8=>8,9=>9,10=>10,11=>11,12=>12,13=>13,14=>14,15=>15,16=>16,
+            17=>17,18=>18,19=>19,20=>20,21=>21,22=>22,23=>23,24=>24,25=>25,26=>26,27=>27,28=>28,29=>29,30=>30,31=>31);
 
     public static function getArray($type)
     {
         switch ($type) {
-          	case 'category_type': return self::$CATEGORY_TYPE;
-          	case 'image_type': return self::$IMAGE_TYPE;
-          	case 'video_type': return self::$VIDEO_TYPE;
-            case 'alpha_en': return self::$ALPHA_EN;
-          	case 'alpha_mn': return self::$ALPHA_MN;
-          	case 'view_detail': return self::$VIEW_DETAIL;
-          	case 'view_list': return self::$VIEW_LIST;
-          	case 'banner_position': return self::$BANNER_POSITION;
-          	################################################################################################################################################################
-          	case 'video': return self::$VIDEO;
-          	case 'user': return self::$USER;
-          	case 'menu': return self::$MENU;
-          	case 'type': return self::$TYPE;
+          	case 'objectType': return self::$objectType;
+          	case 'catPositions': return self::$catPositions;
+          	case 'catTypes': return self::$catTypes;
+          	case 'catTypesMn': return self::$catTypesMn;
+          	case 'bannerPosition': return self::$bannerPosition;
+            case 'alphaEn': return self::$alphaEn;
+          	case 'alphaMn': return self::$alphaMn;
+          	case 'badWords': return self::$badWords;
+          	case 'reservedWords': return self::$reservedWords;
+          	case 'modPermissions': return self::$modPermissions;
+          	case 'days': return self::$days;
         }
         return array();
     }
@@ -62,14 +70,44 @@ class myTools
     
     ################################################################################################################################################################
     
-    
-    
-    
-    
-    
-    
-    
+    static function clearReservedWords($text){
+        $a = myTools::getArray('reservedWords');
+        foreach ($a as $word) {
+            $text = str_ireplace($word, '', $text);
+        }
+        return $text;
+    }
 
+    static function clearInput($text) {
+        // xss, html tags are escaped here?
+        $text = preg_replace('/\?/', ' ', $text);
+        $text = preg_replace('/\"/', ' ', $text);
+        $text = preg_replace('/\'/', ' ', $text);
+        $text = preg_replace('/</', ' ', $text);
+        $text = preg_replace('/>/', ' ', $text);
+        
+        // strip tags
+        $text = strip_tags($text);
+        
+        // don't clear badwords here
+        
+        // reserved words
+        return myTools::clearReservedWords($text);
+    }
+    
+    static public function slugify($text)
+    {
+        // replace all non letters or digits by -
+        $text = preg_replace('/\W+/', '-', $text);
+     
+        // trim and lowercase
+        $text = strtolower(trim($text, '-'));
+     
+        return $text;
+    }
+    
+    
+    ################################################################################################################################################################
 
     public static function truncateText($text, $length = 30, $truncate_string = '...', $truncate_lastspace = false) {
         if ($text == '') {
@@ -195,7 +233,11 @@ class myTools
         $text = strtolower($text);
 
         // strip all non word chars
-        $text = preg_replace('/\W/', ' ', $text);
+        $text = preg_replace('/\?/', ' ', $text);
+        $text = preg_replace('/\"/', ' ', $text);
+        $text = preg_replace('/\'/', ' ', $text);
+        $text = preg_replace('/</', ' ', $text);
+        $text = preg_replace('/>/', ' ', $text);
 
         // replace all white space sections with a dash
         $text = preg_replace('/\ +/', '-', $text);
@@ -241,6 +283,7 @@ class myTools
         }
         return $new_str;
     }
+    
 
     /**
      * author Dulamkhand
@@ -249,27 +292,29 @@ class myTools
      * @param unknown_type $folder
      * @param unknown_type $thumb
      */
-    public static function createThumbs($filename, $folder, $thumbs=array()) 
+    public static function createThumbs($filename, $folder, $thumbs=array(), $removeOrg=false) 
     {
         try {
             $ext = myTools::getFileExtension($filename);
             if(in_array($ext, array('jpg', 'jpeg', 'png', 'gif', 'JPG', 'JPEG', 'PNG', 'GIF'))) 
             {
                 $uploadDir = sfConfig::get('sf_upload_dir').'/'.$folder.'/';
-                if (sizeof($thumbs) && $filename && file_exists($uploadDir.$filename)) 
-                {
-                    foreach ($thumbs as $thumb)
-                    {
-                        $thumbnail = new sfThumbnail($thumb, null, true, false, 100);
+                if (sizeof($thumbs) && $filename && file_exists($uploadDir.$filename)) {
+                    // create thumbs
+                    foreach ($thumbs as $thumb) {
+                        $thumbnail = new sfThumbnail($thumb, null, true, false, 75);
                         $thumbnail->loadFile($uploadDir.$filename);
                         $thumbnail->save($uploadDir.$thumb."t-".$filename);
                     }
+                    // remove orig image
+                    if($removeOrg) unlink($uploadDir.$filename);
+                    return true;
                 }
             } // not an image file
         }catch (Exception $e) {
 
         }
-
+        return false;
     }
 
     /**
@@ -281,45 +326,47 @@ class myTools
      * @param unknown_type $qualities
      */
     
-    public static function createQualities($filename, $folder, $qualities=array()) 
+    public static function createQualities($filename, $folder, $qualities=array(), $removeOrg=false) 
     {
         try {
             $ext = myTools::getFileExtension($filename);
             if(in_array($ext, array('jpg', 'jpeg', 'png', 'gif', 'JPG', 'JPEG', 'PNG', 'GIF'))) 
             {
-                $uploadDir = sfConfig::get('sf_upload_dir').'/'.$folder.'/';                
-                if (sizeof($qualities) && $filename && file_exists($uploadDir.$filename)) 
-                {
-                    foreach ($qualities as $quality)
-                    {
+                $uploadDir = sfConfig::get('sf_upload_dir').'/'.$folder.'/';
+                if (sizeof($qualities) && $filename && file_exists($uploadDir.$filename)) {
+                    // create quilities
+                    foreach ($qualities as $quality) {
                         $thumbnail = new sfThumbnail(null, null, true, false, $quality);
                         $thumbnail->loadFile($uploadDir.$filename);
                         $thumbnail->save($uploadDir.$quality."q-".$filename);
                     }
+                    // remove orig image
+                    if($removeOrg) unlink($uploadDir.$filename);
+                    return true;
                 }
             } // not an image file
         }catch (Exception $e) {
 
         }
-
+        return false;
     }
 
 
 
     public static function mn2en($st) {
         $replacement = array(
-                "й"=>"i","ц"=>"c","у"=>"u","к"=>"k","е"=>"e","н"=>"n",'ү'=>'u',
-                "г"=>"g","ш"=>"sh","щ"=>"sh","з"=>"z","х"=>"x","ъ"=>"\'",'ө'=>'u',
-                "ф"=>"f","ы"=>"i","в"=>"v","а"=>"a","п"=>"p","р"=>"r",
-                "о"=>"o","л"=>"l","д"=>"d","ж"=>"zh","э"=>"ie","ё"=>"e",
-                "я"=>"ya","ч"=>"ch","с"=>"c","м"=>"m","и"=>"i","т"=>"t",
-                "ь"=>"\'","б"=>"b","ю"=>"yu","\""=>"\'","'"=>"\'",
-                "Й"=>"I","Ц"=>"C","У"=>"U","К"=>"K","Е"=>"E","Н"=>"N",'Ү'=>'U',
-                "Г"=>"G","Ш"=>"SH","Щ"=>"SH","З"=>"Z","Х"=>"X","Ъ"=>"\'",'Ө'=>'U',
-                "Ф"=>"F","Ы"=>"I","В"=>"V","А"=>"A","П"=>"P","Р"=>"R",
-                "О"=>"O","Л"=>"L","Д"=>"D","Ж"=>"ZH","Э"=>"IE","Ё"=>"E",
-                "Я"=>"YA","Ч"=>"CH","С"=>"C","М"=>"M","И"=>"I","Т"=>"T",
-                "Ь"=>"\'","Б"=>"B","Ю"=>"YU",
+                "й"=>"i","ц"=>"ts","у"=>"u","к"=>"k","е"=>"ye","н"=>"n",'ү'=>'u',
+                "г"=>"g","ш"=>"sh","щ"=>"sh","з"=>"z","х"=>"h","ъ"=>"-",'ө'=>'u',
+                "ф"=>"f","ы"=>"ii","в"=>"v","а"=>"a","п"=>"p","р"=>"r",
+                "о"=>"o","л"=>"l","д"=>"d","ж"=>"j","э"=>"e","ё"=>"yo",
+                "я"=>"ya","ч"=>"ch","с"=>"s","м"=>"m","и"=>"i","т"=>"t",
+                "ь"=>"-","б"=>"b","ю"=>"yu","\""=>"-","'"=>"-",
+                "Й"=>"I","Ц"=>"TS","У"=>"U","К"=>"K","Е"=>"YE","Н"=>"N",'Ү'=>'U',
+                "Г"=>"G","Ш"=>"SH","Щ"=>"SH","З"=>"Z","Х"=>"H","Ъ"=>"-",'Ө'=>'U',
+                "Ф"=>"F","Ы"=>"II","В"=>"V","А"=>"A","П"=>"P","Р"=>"R",
+                "О"=>"O","Л"=>"L","Д"=>"D","Ж"=>"J","Э"=>"E","Ё"=>"YO",
+                "Я"=>"YA","Ч"=>"CH","С"=>"S","М"=>"M","И"=>"I","Т"=>"T",
+                "Ь"=>"-'","Б"=>"B","Ю"=>"YU",
         );
 
         foreach($replacement as $i=>$u) {
@@ -364,6 +411,22 @@ class myTools
         $word = str_replace($latin_upper_chars, $cyr_upper_chars, $word);
         return $word;
     }
+	
+	
+  	function str_split_unicode($str, $l = 0) {
+  		if ($l > 0) {
+  			$ret = array();
+  			$len = mb_strlen($str, "UTF-8");
+  			for ($i = 0; $i < $len; $i += $l) {
+  				$ret[] = mb_substr($str, $i, $l, "UTF-8");
+  			}
+  			return $ret;
+  		}
+  		return preg_split("//u", $str, -1, PREG_SPLIT_NO_EMPTY);
+  	}
+  	
+  	
+  	
 
 }
 

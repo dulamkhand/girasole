@@ -15,7 +15,8 @@ Doctrine_Manager::getInstance()->bindComponent('Page', 'doctrine');
  * @property string $content
  * @property integer $sort
  * @property timestamp $created_at
- * @property integer $is_active
+ * @property boolean $is_active
+ * @property integer $nb_love
  * 
  * @method integer   getId()          Returns the current record's "id" value
  * @method integer   getCategoryId()  Returns the current record's "category_id" value
@@ -25,7 +26,8 @@ Doctrine_Manager::getInstance()->bindComponent('Page', 'doctrine');
  * @method string    getContent()     Returns the current record's "content" value
  * @method integer   getSort()        Returns the current record's "sort" value
  * @method timestamp getCreatedAt()   Returns the current record's "created_at" value
- * @method integer   getIsActive()    Returns the current record's "is_active" value
+ * @method boolean   getIsActive()    Returns the current record's "is_active" value
+ * @method integer   getNbLove()      Returns the current record's "nb_love" value
  * @method Page      setId()          Sets the current record's "id" value
  * @method Page      setCategoryId()  Sets the current record's "category_id" value
  * @method Page      setType()        Sets the current record's "type" value
@@ -35,6 +37,7 @@ Doctrine_Manager::getInstance()->bindComponent('Page', 'doctrine');
  * @method Page      setSort()        Sets the current record's "sort" value
  * @method Page      setCreatedAt()   Sets the current record's "created_at" value
  * @method Page      setIsActive()    Sets the current record's "is_active" value
+ * @method Page      setNbLove()      Sets the current record's "nb_love" value
  * 
  * @package    vogue
  * @subpackage model
@@ -117,14 +120,23 @@ abstract class BasePage extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 25,
              ));
-        $this->hasColumn('is_active', 'integer', 1, array(
-             'type' => 'integer',
+        $this->hasColumn('is_active', 'boolean', null, array(
+             'type' => 'boolean',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
-             'length' => 1,
+             ));
+        $this->hasColumn('nb_love', 'integer', 4, array(
+             'type' => 'integer',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'default' => '0',
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 4,
              ));
     }
 

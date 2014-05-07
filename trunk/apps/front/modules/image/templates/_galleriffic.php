@@ -1,3 +1,6 @@
+<?php $images = Doctrine::getTable('Image')->doFetchArray(array('objectType'=>$objectType, 'objectId'=>$objectId, 'limit'=>30))?>
+<?php if(sizeof($images)):?>
+
 <?php use_javascript('galleriffic/jquery.history.js');?>
 <?php use_javascript('galleriffic/jquery.galleriffic.js');?>
 <?php use_javascript('galleriffic/jquery.opacityrollover.js');?>
@@ -6,8 +9,7 @@
 <div id="slideshow"></div>
 
 <div id="thumbs" class="navigation">
-  <ul class="thumbs">
-    <?php $images = Doctrine::getTable('Image')->doFetchArray(array('objectType'=>$objectType, 'objectId'=>$objectId))?>
+  <ul class="thumbs">    
     <?php foreach ($images as $image):?>
       <li>
         <a class="thumb" name="leaf" href="/uploads/<?php echo $image['folder'].'/'.$image['filename']?>" title="<?php echo $image['title']?>">
@@ -136,3 +138,4 @@ jQuery(document).ready(function($) {
   });
 });
 </script>
+<?php endif?>

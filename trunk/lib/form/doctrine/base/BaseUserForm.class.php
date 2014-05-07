@@ -20,14 +20,19 @@ abstract class BaseUserForm extends BaseFormDoctrine
       'password'        => new sfWidgetFormInputText(),
       'firstname'       => new sfWidgetFormInputText(),
       'lastname'        => new sfWidgetFormInputText(),
+      'fullname'        => new sfWidgetFormInputText(),
+      'about'           => new sfWidgetFormTextarea(),
       'email'           => new sfWidgetFormInputText(),
       'mobile'          => new sfWidgetFormInputText(),
-      'is_active'       => new sfWidgetFormInputText(),
+      'avator'          => new sfWidgetFormInputText(),
+      'image'           => new sfWidgetFormInputText(),
+      'is_active'       => new sfWidgetFormInputCheckbox(),
       'created_at'      => new sfWidgetFormDateTime(),
       'updated_at'      => new sfWidgetFormDateTime(),
       'logged_at'       => new sfWidgetFormDateTime(),
       'activation_code' => new sfWidgetFormInputText(),
-      'is_admin'        => new sfWidgetFormInputText(),
+      'is_admin'        => new sfWidgetFormInputCheckbox(),
+      'ip'              => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
@@ -36,14 +41,19 @@ abstract class BaseUserForm extends BaseFormDoctrine
       'password'        => new sfValidatorString(array('max_length' => 255)),
       'firstname'       => new sfValidatorString(array('max_length' => 255)),
       'lastname'        => new sfValidatorString(array('max_length' => 255)),
+      'fullname'        => new sfValidatorString(array('max_length' => 255)),
+      'about'           => new sfValidatorString(),
       'email'           => new sfValidatorString(array('max_length' => 255)),
       'mobile'          => new sfValidatorString(array('max_length' => 255)),
-      'is_active'       => new sfValidatorInteger(),
+      'avator'          => new sfValidatorString(array('max_length' => 255)),
+      'image'           => new sfValidatorString(array('max_length' => 255)),
+      'is_active'       => new sfValidatorBoolean(),
       'created_at'      => new sfValidatorDateTime(),
       'updated_at'      => new sfValidatorDateTime(array('required' => false)),
       'logged_at'       => new sfValidatorDateTime(array('required' => false)),
       'activation_code' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'is_admin'        => new sfValidatorInteger(array('required' => false)),
+      'is_admin'        => new sfValidatorBoolean(array('required' => false)),
+      'ip'              => new sfValidatorString(array('max_length' => 255)),
     ));
 
     $this->widgetSchema->setNameFormat('user[%s]');
