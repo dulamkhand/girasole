@@ -1,14 +1,14 @@
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
-# USER
+# admin
 login:
   url:   /login
-  param: { module: user, action: login }
+  param: { module: admin, action: login }
   
 logout:
   url:   /logout
-  param: { module: user, action: logout }
+  param: { module: admin, action: logout }
 
 banner:
   url:   /banner

@@ -28,7 +28,7 @@ class UserTable extends Doctrine_Table
   
     public function doFetchArray($params = array())
     {
-        $q = Doctrine_Query::create()->select('id, title, category_id, company_id, folder, filename');
+        $q = Doctrine_Query::create()->select('*');
         $q = self::params($q, $params);
                 
         return $q->fetchArray();
@@ -41,7 +41,7 @@ class UserTable extends Doctrine_Table
         $rss = self::doFetchArray($params);
         foreach ($rss as $rs)
         {
-          $res[$rs['id']] = $rs['title'];
+          $res[$rs['id']] = $rs['email'];
         }
         return $res;
     }
@@ -55,6 +55,12 @@ class UserTable extends Doctrine_Table
     }
     
   
+    public function doCount($params = array())
+    {
+        $q = Doctrine_Query::create()->select('count(id)');
+        $q = self::params($q, $params);
+        return $q->count();
+    }
     
     public function getPager($params = array(), $page=1)
     {
@@ -70,40 +76,53 @@ class UserTable extends Doctrine_Table
     }
     
     
+    
     private function params($q, $params = array())
     {
         $q->from('User');
-        $q->where('id <> ? ', (isset($params['id']) && $params['id'] ? $params['id'] : 0));
-  
-        if(isset($params['firstname']) && $params['firstname'])
-            $q->andWhere('firstname= ?', '%'.$params['firstname'].'%');
+		
+        if(isset($params['id']) && $params['id'] != null)
+            $q->andWhere('id = ?', $params['id']);
             
-        if(isset($params['lastname']) && $params['lastname'])
-            $q->andWhere('lastname= ?', '%'.$params['lastname'].'%');
+        if(isset($params['idO']) && $params['idO'] != null)
+            $q->andWhere('id <> ?', $params['idO']);
+  
+        if(isset($params['fullname']) && $params['fullname'])
+            $q->andWhere('fullname like ?', '%'.$params['fullname'].'%');
 
         if(isset($params['email']) && $params['email'])
-            $q->andWhere('email= ?', '%'.$params['email'].'%');
+            $q->andWhere('email like ?', '%'.$params['email'].'%');
         
         if(isset($params['mobile']) && $params['mobile'])
-            $q->andWhere('mobile= ?', '%'.$params['mobile'].'%');
-            
-        if(isset($params['address']) && $params['address'])
-            $q->andWhere('address LIKE ?', '%'.$params['address'].'%');
+            $q->andWhere('mobile like ?', '%'.$params['mobile'].'%');
             
         if(isset($params['keyword']) && $params['keyword'])
-            $q->andWhere('firstname LIKE ? OR lastname LIKE ? OR email LIKE ? OR mobile LIKE ? address LIKE ?', 
-                array('%'.$params['keyword'].'%', '%'.$params['keyword'].'%', '%'.$params['keyword'].'%', '%'.$params['keyword'].'%', '%'.$params['keyword'].'%'));
+            $q->andWhere('fullname LIKE ? OR email LIKE ? OR mobile LIKE ? OR about LIKE ?', 
+                array('%'.$params['keyword'].'%', '%'.$params['keyword'].'%', '%'.$params['keyword'].'%', '%'.$params['keyword'].'%'));
   
-        if(isset($params['isFeatured']) && in_array($params['isFeatured'], array('0', '1'))) 
-            $q->andWhere('is_featured = ?', $params['isFeatured']);
+        if(isset($params['isAdmin']) && in_array($params['isAdmin'], array('0', '1'))) 
+            $q->andWhere('is_admin = ?', $params['isAdmin']);
+
+        // is_active
+        if(isset($params['isActive'])) {
+            if($params['isActive'] != "all" && in_array($params['isActive'], array('0', '1'))) // all ued filter hiihgui
+                $q->andWhere('is_active = ?', $params['isActive']);
+        } else {
+            $q->andWhere('is_active = ?', 1); // default
+        }
         
-        if(isset($params['isActive']) && in_array($params['isActive'], array('0', '1'))) 
-            $q->andWhere('is_active = ?', $params['isActive']);
+        // group, offset, limit, order
+        if(isset($params['groupBy']) && $params['groupBy'])
+            $q->groupBy($params['groupBy']);        
+
+        if(isset($params['offset']) && $params['offset'])
+            $q->offset($params['offset']);
         
-        $limit = isset($params['limit']) ? $params['limit'] : sfConfig::get('app_pager', 30);
+        $limit = isset($params['limit']) ? $params['limit'] : sfConfig::get('app_limit', 30);
         $q->limit($limit);
-        
-        $q->orderBy('created_at DESC');
+  
+        $order = isset($params['orderBy']) ? $params['orderBy'] : 'created_at DESC';
+        $q->orderBy($order);
   
         return $q;
     }

@@ -6,13 +6,13 @@ default:
     content-type: text/html
 
   metas:
-    title:        ~ Girasole ~ Girasole ~ Girasole ~
-    description:  ~ Girasole ~ Girasole ~ Girasole ~
-    keywords:     ~ Girasole ~ Girasole ~ Girasole ~
+    title:        Дагина &hearts; Зөвхөн бүсгүйчүүдийн ертөнц
+    description:  Дагина &hearts; Зөвхөн бүсгүйчүүдийн ертөнц
+    keywords:     Дагина &hearts; Зөвхөн бүсгүйчүүдийн ертөнц
     language:     en
     robots:       index, follow
 
-  stylesheets:    [admin/back.css, admin/backBlue.css, admin/backForm.css]
+  stylesheets:    [admin.css]
 
   javascripts:    []
 

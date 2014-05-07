@@ -12,5 +12,8 @@
  */
 class Subscriber extends BaseSubscriber
 {
-
+		public function __toString()
+    {
+        return $this->getEmail();
+    }
 }

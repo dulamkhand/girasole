@@ -16,44 +16,26 @@ class mainActions extends sfActions
         
     }
   
-    /**
-     * Enter description here...
-     *
-     * @param sfWebRequest $request
-     */
     public function executeHome(sfWebRequest $request)
     {
-        $this->rss = Doctrine::getTable('Content')->doFetchArray(array('categoryId'=>$request->getParameter('categoryId')), $request->getParameter('page'));
-
-        $listtype = $request->getParameter('listtype', 'list1');
-        $this->setTemplate($listtype);
-    }
-
+      // home
+    }    
     
-    public function executeList(sfWebRequest $request)
+    public function execute404(sfWebRequest $request)
     {
-        $this->rss = Doctrine::getTable('Content')->doFetchArray(array('categoryId'=>$request->getParameter('categoryId')), $request->getParameter('page'));
         
-        $listtype = $request->getParameter('listtype', 'list1');
-        $this->setTemplate($listtype);
     }
     
-    
-    public function executeDetail(sfWebRequest $request)
+    public function executeSearch(sfWebRequest $request)
     {
-        $this->rs = $rs= Doctrine::getTable('Content')->doFetchOne(array('id'=>$request->getParameter('id')));
-
-        //$this->setTemplate($content->getViewDetail());
-        //$this->setTemplate('detail1');
-        $this->setTemplate('detail2');
+        $this->pager = Doctrine::getTable('Content')->getPager(
+            array('keyword'=>$request->getParameter('keyword'), 'limit'=>24), $request->getParameter('page'));
+        
     }
     
-
-
-    public function executeContact(sfWebRequest $request)
+    public function executeTmp(sfWebRequest $request)
     {
-        $this->page = Doctrine::getTable('Page')->findOneByType('contact');
-        $this->forward404Unless($this->page);
+        echo 'success'; die();
     }
 
 }

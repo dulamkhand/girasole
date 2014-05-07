@@ -1,28 +1,75 @@
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
-# CAPTCHA
-captcha:
-  url:        /captcha
-  param:      { module: sfCryptoCaptcha , action: captcha }
-captcha_refresh:
-  url:        /captcha/:random
-  param:      { module: sfCryptoCaptcha , action: captcha }
-captcha_demo:
-  url:        /captcha_demo
-  param:      { module: sfCryptoCaptcha , action: captchaDemo }
-
-
-# MAIN
-default:
-  url:   /default
-  param: { module: main, action: default }
+# category
+branch1:
+  url:   /b1/:type.htm
+  param: { module: content, action: branch1 }
   
+branch2:
+  url:   /b2/:type/:catId.htm
+  param: { module: content, action: branch2 }
 
+# content
+leaf1:
+  url:   /l/:type/:route.htm
+  param: { module: content, action: leaf1 }
+
+# quiz
+quiz:
+  url:   /q/:route.htm
+  param: { module: quiz, action: detail }
+  
+# user
+profile:
+  url:   /p/:username.htm
+  param: { module: user, action: profile }
+register:
+  url:   /register.htm
+  param: { module: user, action: register }  
+login:
+  url:   /login.htm
+  param: { module: user, action: login }
+logout:
+  url:   /logout.htm
+  param: { module: user, action: logout }
+
+# pages
+#pageByRoute:
+#  url:   /go/page/:route.htm
+#  param: { module: page, action: detail }
 contact:
-  url:   /contact
-  param: { module: main, action: contact }
+  url:   /contact.htm
+  param: { module: page, action: contact }
+about:
+  url:   /about.htm
+  param: { module: page, action: contact }
+help:
+  url:   /help.htm
+  param: { module: page, action: help }
+sitemap:
+  url:   /sitemap.htm
+  param: { module: page, action: sitemap }
+contribute:
+  url:   /contribute.htm
+  param: { module: page, action: contribute }
+promote:
+  url:   /promote.htm
+  param: { module: page, action: promote }
+post:
+  url:   /post.htm
+  param: { module: page, action: post }
+patriot:
+  url:   /patriot.htm
+  param: { module: page, action: patriot }
   
+# main
+404:
+  url:   /404.htm
+  param: { module: main, action: 404 }
+search:
+  url:   /s/:keyword.htm
+  param: { module: main, action: search }
 
 # default rules
 homepage:
@@ -32,8 +79,9 @@ homepage:
 # generic rules
 # please, remove them by adding more specific rules
 default_index:
-  url:   /:module
+  url:   /:module.htm
   param: { action: index }
 
 default:
   url:   /:module/:action/*
+

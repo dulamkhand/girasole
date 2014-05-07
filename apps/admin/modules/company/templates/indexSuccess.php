@@ -22,22 +22,17 @@
     </tr>
   </thead>
   <tbody>
-    <?php $i=0; foreach ($pager->getResults() as $company): ?>
+    <?php $i=0; foreach ($pager->getResults() as $rs): ?>
     <tr>
       <td><?php echo ++$i?></td>
-      <td><?php echo $company->getName() ?></td>
-      <td><?php echo $company->getUrlName() ?></td>
-      <td><?php echo $company->getLogo() ?></td>
-      <td><?php echo $company->getWeb() ?></td>
-      <td><?php echo $company->getSort() ?></td>
-      <td><?php echo $company->getCreatedAt() ?></td>
+      <td><?php echo $rs->getName() ?></td>
+      <td><?php echo $rs->getUrlName() ?></td>
+      <td><?php echo $rs->getLogo() ?></td>
+      <td><?php echo $rs->getWeb() ?></td>
+      <td><?php echo $rs->getSort() ?></td>
+      <td><?php echo $rs->getCreatedAt() ?></td>
       <td nowrap>
-        <a href="<?php echo url_for('company/edit?id='.$company->getId())?>" title="Засварлах" style="text-decoration:none;">
-            <?php echo image_tag('icons/with-shadows/page-pencil-24.png', array())?>
-        </a>
-        <a onclick="return confirm('Are you sure?')" href="<?php echo url_for('company/delete?id='.$company->getId())?>" title="Устгах" style="text-decoration:none;">
-            <?php echo image_tag('icons/with-shadows/cross-24.png', array())?>
-        </a>
+          <?php include_partial('global/actions', array('module'=>'company', 'id'=>$rs->getId()));?>
       </td>
     </tr>
     <?php endforeach; ?>

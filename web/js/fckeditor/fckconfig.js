@@ -70,10 +70,10 @@ FCKConfig.ProcessNumericEntities = false ;
 
 FCKConfig.AdditionalNumericEntities = ''  ;		// Single Quote: "'"
 
-FCKConfig.FillEmptyBlocks	= true ;
+FCKConfig.FillEmptyBlocks	= true ; // Xandaa
 
-FCKConfig.FormatSource		= true ;
-FCKConfig.FormatOutput		= true ;
+FCKConfig.FormatSource		= true ; // Xandaa
+FCKConfig.FormatOutput		= true ; // Xandaa
 FCKConfig.FormatIndentator	= '    ' ;
 
 FCKConfig.EMailProtection = 'none' ; // none | encode | function
@@ -98,7 +98,7 @@ FCKConfig.TemplateReplaceCheckbox = true ;
 
 FCKConfig.ToolbarLocation = 'In' ;
 
-FCKConfig.ToolbarSets["DefaultOld"] = [
+FCKConfig.ToolbarSets["DefaultBig"] = [
 	['Source','DocProps','-','Save','NewPage','Preview','-','Templates'],
 	['Cut','Copy','Paste','PasteText','PasteWord','-','Print','SpellCheck'],
 	['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
@@ -115,15 +115,15 @@ FCKConfig.ToolbarSets["DefaultOld"] = [
 	['FitWindow','ShowBlocks','-','About']		// No comma for the last row.
 ] ;
 
-FCKConfig.ToolbarSets["Default"] = [
+FCKConfig.ToolbarSets["DefaultMiddle"] = [
 	['Bold','Italic','Underline','Subscript','Superscript','OrderedList','UnorderedList','Cut','Copy','Paste','Undo','Redo'],
 	['JustifyLeft','JustifyCenter','JustifyRight','JustifyFull','-','Link','Unlink','Anchor','Image','Flash','Smiley','SpecialChar'],
 	['Style','FontFormat','FontName','FontSize','-','TextColor','BGColor']
 ];
 
-FCKConfig.ToolbarSets["Basic"] = [
-	['Bold','Italic','-','OrderedList','UnorderedList','-','Link','Unlink','-','About']
-] ;
+FCKConfig.ToolbarSets["Default"] = [
+	['Source','Bold','Italic','Underline','-','Subscript','Superscript','-','TextColor','BGColor','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyFull','-','Link','Unlink','Anchor','Image','Flash','Smiley','SpecialChar']
+];
 
 FCKConfig.EnterMode = 'p' ;			// p | div | br
 FCKConfig.ShiftEnterMode = 'br' ;	// p | div | br
@@ -309,7 +309,7 @@ FCKConfig.LinkUploadDeniedExtensions	= "" ;	// empty for no one
 
 FCKConfig.ImageUpload = true ;
 FCKConfig.ImageUploadURL = FCKConfig.BasePath + 'filemanager/connectors/' + _QuickUploadLanguage + '/upload.' + _QuickUploadExtension + '?Type=Image' ;
-FCKConfig.ImageUploadAllowedExtensions	= ".(jpg|gif|jpeg|png|bmp)$" ;		// empty for all
+FCKConfig.ImageUploadAllowedExtensions	= ".(jpg|gif|jpeg|png|bmp|dot|dotx|doc|docx|xls|xlsx|pdf|xpdf|pdfx|ppt|pptx|zip|rar|html|htm|txt)$" ;		// empty for all
 FCKConfig.ImageUploadDeniedExtensions	= "" ;							// empty for no one
 
 FCKConfig.FlashUpload = true ;

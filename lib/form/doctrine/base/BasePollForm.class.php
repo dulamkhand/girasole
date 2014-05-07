@@ -15,27 +15,33 @@ abstract class BasePollForm extends BaseFormDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'id'          => new sfWidgetFormInputHidden(),
-      'object_type' => new sfWidgetFormInputText(),
-      'object_id'   => new sfWidgetFormInputText(),
-      'title'       => new sfWidgetFormInputText(),
-      'body'        => new sfWidgetFormTextarea(),
-      'sort'        => new sfWidgetFormInputText(),
-      'is_active'   => new sfWidgetFormInputText(),
-      'is_featured' => new sfWidgetFormInputText(),
-      'created_at'  => new sfWidgetFormDateTime(),
+      'id'              => new sfWidgetFormInputHidden(),
+      'content_id'      => new sfWidgetFormInputText(),
+      'title'           => new sfWidgetFormInputText(),
+      'route'           => new sfWidgetFormInputText(),
+      'body'            => new sfWidgetFormTextarea(),
+      'options_addable' => new sfWidgetFormInputCheckbox(),
+      'multiple_choice' => new sfWidgetFormInputCheckbox(),
+      'sort'            => new sfWidgetFormInputText(),
+      'is_active'       => new sfWidgetFormInputCheckbox(),
+      'is_featured'     => new sfWidgetFormInputCheckbox(),
+      'created_at'      => new sfWidgetFormDateTime(),
+      'nb_love'         => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
-      'id'          => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'object_type' => new sfValidatorString(array('max_length' => 255)),
-      'object_id'   => new sfValidatorInteger(),
-      'title'       => new sfValidatorString(array('max_length' => 255)),
-      'body'        => new sfValidatorString(),
-      'sort'        => new sfValidatorInteger(),
-      'is_active'   => new sfValidatorInteger(),
-      'is_featured' => new sfValidatorInteger(),
-      'created_at'  => new sfValidatorDateTime(),
+      'id'              => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+      'content_id'      => new sfValidatorInteger(),
+      'title'           => new sfValidatorString(array('max_length' => 255)),
+      'route'           => new sfValidatorString(array('max_length' => 255)),
+      'body'            => new sfValidatorString(),
+      'options_addable' => new sfValidatorBoolean(),
+      'multiple_choice' => new sfValidatorBoolean(),
+      'sort'            => new sfValidatorInteger(),
+      'is_active'       => new sfValidatorBoolean(),
+      'is_featured'     => new sfValidatorBoolean(),
+      'created_at'      => new sfValidatorDateTime(),
+      'nb_love'         => new sfValidatorInteger(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('poll[%s]');

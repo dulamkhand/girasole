@@ -13,20 +13,29 @@ class CategoryForm extends BaseCategoryForm
   
   public function configure()
   {
-      unset($this['id'],$this['type']);
+      unset($this['type'],$this['parent_name']);
       
       // WIDGETS
-      $choices = Doctrine::getTable('Category')->doFetchSelection();
-      $choices[0] = "---";
-      $this->widgetSchema['parent_id'] = new sfWidgetFormChoice(array('choices' => $choices), array('style'=>'width:400px;height:24px;'));
-      $this->widgetSchema['name']      = new sfWidgetFormInputText(array(), array('style'=>'width:400px;'));
-      $this->widgetSchema['sort']      = new sfWidgetFormInputText(array(), array('style'=>'width:40px;'));
-      
+      $choices = myTools::getArray('catTypes');
+      $this->widgetSchema['type'] = new sfWidgetFormChoice(array('choices' => $choices), array('style'=>'width:250px;height:24px;'));
+      $this->widgetSchema['name']      = new sfWidgetFormInputText(array(), array());
+      $choices = myTools::getArray('catPositions');
+      $this->widgetSchema['position'] = new sfWidgetFormChoice(array('choices' => $choices), array());
+      $this->widgetSchema['backcolor'] = new sfWidgetFormInputText(array(), array('style'=>'width:150px;'));
+      $this->widgetSchema['forecolor'] = new sfWidgetFormInputText(array(), array('style'=>'width:150px;'));
 
       // VALIDATORS
+      $this->validatorSchema['type'] = new sfValidatorPass();
       $this->validatorSchema['parent_id'] = new sfValidatorPass();
       $this->validatorSchema['name']      = new sfValidatorString(array(), array());
-      $this->validatorSchema['sort']      = new sfValidatorPass();
+      $this->validatorSchema['position']  = new sfValidatorPass();
+      $this->validatorSchema['backcolor'] = new sfValidatorPass();
+      $this->validatorSchema['forecolor'] = new sfValidatorPass();
+      
+      $host = sfContext::getInstance()->getRequest()->getHost();
+      $this->widgetSchema->setHelp('position', 'Branch1 хуудасны байрлал - <a href="http://'.$host.'/girasole/images/help/branch1pos.png" target="_blank">see here</a>');
+      $this->widgetSchema->setHelp('backcolor', 'Одоохондоо хоосон үлдээж болно');
+      $this->widgetSchema->setHelp('forecolor', 'Одоохондоо хоосон үлдээж болно');      
   }
 
 }

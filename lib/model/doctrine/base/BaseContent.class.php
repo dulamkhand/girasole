@@ -9,56 +9,125 @@ Doctrine_Manager::getInstance()->bindComponent('Content', 'doctrine');
  * 
  * @property integer $id
  * @property string $type
+ * @property integer $parent_category_id
+ * @property string $parent_category_name
  * @property integer $category_id
  * @property string $category_name
  * @property string $title
+ * @property string $route
  * @property string $cover
  * @property integer $cover_width
  * @property string $intro
  * @property string $body
  * @property string $source
+ * @property string $source_link
  * @property integer $sort
  * @property integer $nb_views
- * @property integer $is_active
- * @property integer $is_featured
- * @property string $view_list
- * @property string $view_detail
+ * @property integer $nb_love
+ * @property integer $nb_comment
+ * @property integer $nb_discuss
+ * @property boolean $is_active
+ * @property boolean $is_new
+ * @property boolean $is_top
+ * @property boolean $is_featured
+ * @property boolean $is_featured_home
+ * @property boolean $is_featured_home1
+ * @property boolean $is_discuss
+ * @property boolean $ask18
+ * @property integer $quiz_id
+ * @property integer $poll_id
+ * @property integer $coupon_id
  * @property timestamp $created_at
+ * @property timestamp $updated_at
+ * @property integer $admin_id
+ * @property integer $author_id
+ * @property boolean $author_show
+ * @property integer $photographer_id
+ * @property boolean $photographer_show
+ * @property string $keywords
+ * @property string $related_ids
+ * @property Admin $Admin
  * 
- * @method integer   getId()            Returns the current record's "id" value
- * @method string    getType()          Returns the current record's "type" value
- * @method integer   getCategoryId()    Returns the current record's "category_id" value
- * @method string    getCategoryName()  Returns the current record's "category_name" value
- * @method string    getTitle()         Returns the current record's "title" value
- * @method string    getCover()         Returns the current record's "cover" value
- * @method integer   getCoverWidth()    Returns the current record's "cover_width" value
- * @method string    getIntro()         Returns the current record's "intro" value
- * @method string    getBody()          Returns the current record's "body" value
- * @method string    getSource()        Returns the current record's "source" value
- * @method integer   getSort()          Returns the current record's "sort" value
- * @method integer   getNbViews()       Returns the current record's "nb_views" value
- * @method integer   getIsActive()      Returns the current record's "is_active" value
- * @method integer   getIsFeatured()    Returns the current record's "is_featured" value
- * @method string    getViewList()      Returns the current record's "view_list" value
- * @method string    getViewDetail()    Returns the current record's "view_detail" value
- * @method timestamp getCreatedAt()     Returns the current record's "created_at" value
- * @method Content   setId()            Sets the current record's "id" value
- * @method Content   setType()          Sets the current record's "type" value
- * @method Content   setCategoryId()    Sets the current record's "category_id" value
- * @method Content   setCategoryName()  Sets the current record's "category_name" value
- * @method Content   setTitle()         Sets the current record's "title" value
- * @method Content   setCover()         Sets the current record's "cover" value
- * @method Content   setCoverWidth()    Sets the current record's "cover_width" value
- * @method Content   setIntro()         Sets the current record's "intro" value
- * @method Content   setBody()          Sets the current record's "body" value
- * @method Content   setSource()        Sets the current record's "source" value
- * @method Content   setSort()          Sets the current record's "sort" value
- * @method Content   setNbViews()       Sets the current record's "nb_views" value
- * @method Content   setIsActive()      Sets the current record's "is_active" value
- * @method Content   setIsFeatured()    Sets the current record's "is_featured" value
- * @method Content   setViewList()      Sets the current record's "view_list" value
- * @method Content   setViewDetail()    Sets the current record's "view_detail" value
- * @method Content   setCreatedAt()     Sets the current record's "created_at" value
+ * @method integer   getId()                   Returns the current record's "id" value
+ * @method string    getType()                 Returns the current record's "type" value
+ * @method integer   getParentCategoryId()     Returns the current record's "parent_category_id" value
+ * @method string    getParentCategoryName()   Returns the current record's "parent_category_name" value
+ * @method integer   getCategoryId()           Returns the current record's "category_id" value
+ * @method string    getCategoryName()         Returns the current record's "category_name" value
+ * @method string    getTitle()                Returns the current record's "title" value
+ * @method string    getRoute()                Returns the current record's "route" value
+ * @method string    getCover()                Returns the current record's "cover" value
+ * @method integer   getCoverWidth()           Returns the current record's "cover_width" value
+ * @method string    getIntro()                Returns the current record's "intro" value
+ * @method string    getBody()                 Returns the current record's "body" value
+ * @method string    getSource()               Returns the current record's "source" value
+ * @method string    getSourceLink()           Returns the current record's "source_link" value
+ * @method integer   getSort()                 Returns the current record's "sort" value
+ * @method integer   getNbViews()              Returns the current record's "nb_views" value
+ * @method integer   getNbLove()               Returns the current record's "nb_love" value
+ * @method integer   getNbComment()            Returns the current record's "nb_comment" value
+ * @method integer   getNbDiscuss()            Returns the current record's "nb_discuss" value
+ * @method boolean   getIsActive()             Returns the current record's "is_active" value
+ * @method boolean   getIsNew()                Returns the current record's "is_new" value
+ * @method boolean   getIsTop()                Returns the current record's "is_top" value
+ * @method boolean   getIsFeatured()           Returns the current record's "is_featured" value
+ * @method boolean   getIsFeaturedHome()       Returns the current record's "is_featured_home" value
+ * @method boolean   getIsFeaturedHome1()      Returns the current record's "is_featured_home1" value
+ * @method boolean   getIsDiscuss()            Returns the current record's "is_discuss" value
+ * @method boolean   getAsk18()                Returns the current record's "ask18" value
+ * @method integer   getQuizId()               Returns the current record's "quiz_id" value
+ * @method integer   getPollId()               Returns the current record's "poll_id" value
+ * @method integer   getCouponId()             Returns the current record's "coupon_id" value
+ * @method timestamp getCreatedAt()            Returns the current record's "created_at" value
+ * @method timestamp getUpdatedAt()            Returns the current record's "updated_at" value
+ * @method integer   getAdminId()              Returns the current record's "admin_id" value
+ * @method integer   getAuthorId()             Returns the current record's "author_id" value
+ * @method boolean   getAuthorShow()           Returns the current record's "author_show" value
+ * @method integer   getPhotographerId()       Returns the current record's "photographer_id" value
+ * @method boolean   getPhotographerShow()     Returns the current record's "photographer_show" value
+ * @method string    getKeywords()             Returns the current record's "keywords" value
+ * @method string    getRelatedIds()           Returns the current record's "related_ids" value
+ * @method Admin     getAdmin()                Returns the current record's "Admin" value
+ * @method Content   setId()                   Sets the current record's "id" value
+ * @method Content   setType()                 Sets the current record's "type" value
+ * @method Content   setParentCategoryId()     Sets the current record's "parent_category_id" value
+ * @method Content   setParentCategoryName()   Sets the current record's "parent_category_name" value
+ * @method Content   setCategoryId()           Sets the current record's "category_id" value
+ * @method Content   setCategoryName()         Sets the current record's "category_name" value
+ * @method Content   setTitle()                Sets the current record's "title" value
+ * @method Content   setRoute()                Sets the current record's "route" value
+ * @method Content   setCover()                Sets the current record's "cover" value
+ * @method Content   setCoverWidth()           Sets the current record's "cover_width" value
+ * @method Content   setIntro()                Sets the current record's "intro" value
+ * @method Content   setBody()                 Sets the current record's "body" value
+ * @method Content   setSource()               Sets the current record's "source" value
+ * @method Content   setSourceLink()           Sets the current record's "source_link" value
+ * @method Content   setSort()                 Sets the current record's "sort" value
+ * @method Content   setNbViews()              Sets the current record's "nb_views" value
+ * @method Content   setNbLove()               Sets the current record's "nb_love" value
+ * @method Content   setNbComment()            Sets the current record's "nb_comment" value
+ * @method Content   setNbDiscuss()            Sets the current record's "nb_discuss" value
+ * @method Content   setIsActive()             Sets the current record's "is_active" value
+ * @method Content   setIsNew()                Sets the current record's "is_new" value
+ * @method Content   setIsTop()                Sets the current record's "is_top" value
+ * @method Content   setIsFeatured()           Sets the current record's "is_featured" value
+ * @method Content   setIsFeaturedHome()       Sets the current record's "is_featured_home" value
+ * @method Content   setIsFeaturedHome1()      Sets the current record's "is_featured_home1" value
+ * @method Content   setIsDiscuss()            Sets the current record's "is_discuss" value
+ * @method Content   setAsk18()                Sets the current record's "ask18" value
+ * @method Content   setQuizId()               Sets the current record's "quiz_id" value
+ * @method Content   setPollId()               Sets the current record's "poll_id" value
+ * @method Content   setCouponId()             Sets the current record's "coupon_id" value
+ * @method Content   setCreatedAt()            Sets the current record's "created_at" value
+ * @method Content   setUpdatedAt()            Sets the current record's "updated_at" value
+ * @method Content   setAdminId()              Sets the current record's "admin_id" value
+ * @method Content   setAuthorId()             Sets the current record's "author_id" value
+ * @method Content   setAuthorShow()           Sets the current record's "author_show" value
+ * @method Content   setPhotographerId()       Sets the current record's "photographer_id" value
+ * @method Content   setPhotographerShow()     Sets the current record's "photographer_show" value
+ * @method Content   setKeywords()             Sets the current record's "keywords" value
+ * @method Content   setRelatedIds()           Sets the current record's "related_ids" value
+ * @method Content   setAdmin()                Sets the current record's "Admin" value
  * 
  * @package    vogue
  * @subpackage model
@@ -87,6 +156,24 @@ abstract class BaseContent extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 255,
              ));
+        $this->hasColumn('parent_category_id', 'integer', 4, array(
+             'type' => 'integer',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 4,
+             ));
+        $this->hasColumn('parent_category_name', 'string', 255, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 255,
+             ));
         $this->hasColumn('category_id', 'integer', 4, array(
              'type' => 'integer',
              'fixed' => 0,
@@ -111,6 +198,15 @@ abstract class BaseContent extends sfDoctrineRecord
              'unsigned' => false,
              'primary' => false,
              'notnull' => false,
+             'autoincrement' => false,
+             'length' => 255,
+             ));
+        $this->hasColumn('route', 'string', 255, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
              'autoincrement' => false,
              'length' => 255,
              ));
@@ -159,6 +255,15 @@ abstract class BaseContent extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 255,
              ));
+        $this->hasColumn('source_link', 'string', 500, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 500,
+             ));
         $this->hasColumn('sort', 'integer', 4, array(
              'type' => 'integer',
              'fixed' => 0,
@@ -178,43 +283,127 @@ abstract class BaseContent extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 4,
              ));
-        $this->hasColumn('is_active', 'integer', 1, array(
+        $this->hasColumn('nb_love', 'integer', 4, array(
              'type' => 'integer',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
-             'default' => '1',
-             'notnull' => false,
+             'default' => '0',
+             'notnull' => true,
              'autoincrement' => false,
-             'length' => 1,
+             'length' => 4,
              ));
-        $this->hasColumn('is_featured', 'integer', 1, array(
+        $this->hasColumn('nb_comment', 'integer', 4, array(
              'type' => 'integer',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
-             'default' => '1',
-             'notnull' => false,
+             'default' => '0',
+             'notnull' => true,
              'autoincrement' => false,
-             'length' => 1,
+             'length' => 4,
              ));
-        $this->hasColumn('view_list', 'string', 255, array(
-             'type' => 'string',
+        $this->hasColumn('nb_discuss', 'integer', 4, array(
+             'type' => 'integer',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'default' => '0',
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 4,
+             ));
+        $this->hasColumn('is_active', 'boolean', null, array(
+             'type' => 'boolean',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
-             'length' => 255,
              ));
-        $this->hasColumn('view_detail', 'string', 255, array(
-             'type' => 'string',
+        $this->hasColumn('is_new', 'boolean', null, array(
+             'type' => 'boolean',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             ));
+        $this->hasColumn('is_top', 'boolean', null, array(
+             'type' => 'boolean',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             ));
+        $this->hasColumn('is_featured', 'boolean', null, array(
+             'type' => 'boolean',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             ));
+        $this->hasColumn('is_featured_home', 'boolean', null, array(
+             'type' => 'boolean',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             ));
+        $this->hasColumn('is_featured_home1', 'boolean', null, array(
+             'type' => 'boolean',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             ));
+        $this->hasColumn('is_discuss', 'boolean', null, array(
+             'type' => 'boolean',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'default' => '0',
+             'notnull' => true,
+             'autoincrement' => false,
+             ));
+        $this->hasColumn('ask18', 'boolean', null, array(
+             'type' => 'boolean',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             ));
+        $this->hasColumn('quiz_id', 'integer', 4, array(
+             'type' => 'integer',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
              'notnull' => false,
              'autoincrement' => false,
-             'length' => 255,
+             'length' => 4,
+             ));
+        $this->hasColumn('poll_id', 'integer', 4, array(
+             'type' => 'integer',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 4,
+             ));
+        $this->hasColumn('coupon_id', 'integer', 4, array(
+             'type' => 'integer',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 4,
              ));
         $this->hasColumn('created_at', 'timestamp', 25, array(
              'type' => 'timestamp',
@@ -225,11 +414,84 @@ abstract class BaseContent extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 25,
              ));
+        $this->hasColumn('updated_at', 'timestamp', 25, array(
+             'type' => 'timestamp',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'default' => '0000-00-00 00:00:00',
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 25,
+             ));
+        $this->hasColumn('admin_id', 'integer', 4, array(
+             'type' => 'integer',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 4,
+             ));
+        $this->hasColumn('author_id', 'integer', 4, array(
+             'type' => 'integer',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => false,
+             'autoincrement' => false,
+             'length' => 4,
+             ));
+        $this->hasColumn('author_show', 'boolean', null, array(
+             'type' => 'boolean',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             ));
+        $this->hasColumn('photographer_id', 'integer', 4, array(
+             'type' => 'integer',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => false,
+             'autoincrement' => false,
+             'length' => 4,
+             ));
+        $this->hasColumn('photographer_show', 'boolean', null, array(
+             'type' => 'boolean',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             ));
+        $this->hasColumn('keywords', 'string', null, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => '',
+             ));
+        $this->hasColumn('related_ids', 'string', 255, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 255,
+             ));
     }
 
     public function setUp()
     {
         parent::setUp();
-        
+        $this->hasOne('Admin', array(
+             'local' => 'admin_id',
+             'foreign' => 'id'));
     }
 }

@@ -12,11 +12,11 @@ class CommentForm extends BaseCommentForm
 {
   public function configure()
   {
-      unset($this['id'],$this['ip_address'],$this['user_id'],$this['created_at']);
+      unset($this['ip_address'],$this['user_id']);
       
       // WIDGETS
-      $this->widgetSchema['body']       = new sfWidgetFormFCKEditor(array('width'=>520, 'height'=>100));
-      $this->widgetSchema['captcha']    = new sfWidgetFormInputText(array(), array('style'=>'width:75px;'));
+      $this->widgetSchema['body']       = new sfWidgetFormFCKEditor(array('width'=>400, 'height'=>100));
+      $this->widgetSchema['captcha']    = new sfWidgetFormInputText(array(), array('style'=>'width:150px;'));
       
       $this->validatorSchema['body']    = new sfValidatorString(array('required'=>true), array('required'=>'&darr; Утга оруулна уу &darr;'));
       $this->validatorSchema['captcha'] = new sfValidatorSfCryptoCaptcha(array('required' => true, 'trim' => true),

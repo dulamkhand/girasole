@@ -12,41 +12,56 @@ Doctrine_Manager::getInstance()->bindComponent('User', 'doctrine');
  * @property string $password
  * @property string $firstname
  * @property string $lastname
+ * @property string $fullname
+ * @property string $about
  * @property string $email
  * @property string $mobile
- * @property integer $is_active
+ * @property string $avator
+ * @property string $image
+ * @property boolean $is_active
  * @property timestamp $created_at
  * @property timestamp $updated_at
  * @property timestamp $logged_at
  * @property string $activation_code
- * @property integer $is_admin
+ * @property boolean $is_admin
+ * @property string $ip
  * 
  * @method integer   getId()              Returns the current record's "id" value
  * @method string    getUsername()        Returns the current record's "username" value
  * @method string    getPassword()        Returns the current record's "password" value
  * @method string    getFirstname()       Returns the current record's "firstname" value
  * @method string    getLastname()        Returns the current record's "lastname" value
+ * @method string    getFullname()        Returns the current record's "fullname" value
+ * @method string    getAbout()           Returns the current record's "about" value
  * @method string    getEmail()           Returns the current record's "email" value
  * @method string    getMobile()          Returns the current record's "mobile" value
- * @method integer   getIsActive()        Returns the current record's "is_active" value
+ * @method string    getAvator()          Returns the current record's "avator" value
+ * @method string    getImage()           Returns the current record's "image" value
+ * @method boolean   getIsActive()        Returns the current record's "is_active" value
  * @method timestamp getCreatedAt()       Returns the current record's "created_at" value
  * @method timestamp getUpdatedAt()       Returns the current record's "updated_at" value
  * @method timestamp getLoggedAt()        Returns the current record's "logged_at" value
  * @method string    getActivationCode()  Returns the current record's "activation_code" value
- * @method integer   getIsAdmin()         Returns the current record's "is_admin" value
+ * @method boolean   getIsAdmin()         Returns the current record's "is_admin" value
+ * @method string    getIp()              Returns the current record's "ip" value
  * @method User      setId()              Sets the current record's "id" value
  * @method User      setUsername()        Sets the current record's "username" value
  * @method User      setPassword()        Sets the current record's "password" value
  * @method User      setFirstname()       Sets the current record's "firstname" value
  * @method User      setLastname()        Sets the current record's "lastname" value
+ * @method User      setFullname()        Sets the current record's "fullname" value
+ * @method User      setAbout()           Sets the current record's "about" value
  * @method User      setEmail()           Sets the current record's "email" value
  * @method User      setMobile()          Sets the current record's "mobile" value
+ * @method User      setAvator()          Sets the current record's "avator" value
+ * @method User      setImage()           Sets the current record's "image" value
  * @method User      setIsActive()        Sets the current record's "is_active" value
  * @method User      setCreatedAt()       Sets the current record's "created_at" value
  * @method User      setUpdatedAt()       Sets the current record's "updated_at" value
  * @method User      setLoggedAt()        Sets the current record's "logged_at" value
  * @method User      setActivationCode()  Sets the current record's "activation_code" value
  * @method User      setIsAdmin()         Sets the current record's "is_admin" value
+ * @method User      setIp()              Sets the current record's "ip" value
  * 
  * @package    vogue
  * @subpackage model
@@ -102,6 +117,24 @@ abstract class BaseUser extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 255,
              ));
+        $this->hasColumn('fullname', 'string', 255, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 255,
+             ));
+        $this->hasColumn('about', 'string', null, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => '',
+             ));
         $this->hasColumn('email', 'string', 255, array(
              'type' => 'string',
              'fixed' => 0,
@@ -120,14 +153,31 @@ abstract class BaseUser extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 255,
              ));
-        $this->hasColumn('is_active', 'integer', 1, array(
-             'type' => 'integer',
+        $this->hasColumn('avator', 'string', 255, array(
+             'type' => 'string',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
-             'length' => 1,
+             'length' => 255,
+             ));
+        $this->hasColumn('image', 'string', 255, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 255,
+             ));
+        $this->hasColumn('is_active', 'boolean', null, array(
+             'type' => 'boolean',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
              ));
         $this->hasColumn('created_at', 'timestamp', 25, array(
              'type' => 'timestamp',
@@ -167,14 +217,22 @@ abstract class BaseUser extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 255,
              ));
-        $this->hasColumn('is_admin', 'integer', 1, array(
-             'type' => 'integer',
+        $this->hasColumn('is_admin', 'boolean', null, array(
+             'type' => 'boolean',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
              'notnull' => false,
              'autoincrement' => false,
-             'length' => 1,
+             ));
+        $this->hasColumn('ip', 'string', 255, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 255,
              ));
     }
 

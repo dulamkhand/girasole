@@ -1,0 +1,51 @@
+.flex-container a:active,
+.featured a:active,
+.flex-container a:focus,
+.featured a:focus  {outline:none;}
+.slides,
+.flex-control-nav,
+.flex-direction-nav {margin:0; padding:0; list-style:none;} 
+
+.featured .slides > li {display:none; -webkit-backface-visibility:hidden;overflow:hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.featured .slides img {width:600px;max-height:450px;position:relative;top:0;left:0; display:block;}
+.flex-pauseplay span {text-transform:capitalize;}
+
+
+.slides:after {content:"."; display:block; clear:both; visibility:hidden; line-height:0; height:0;} 
+html[xmlns] .slides {display:block;} 
+* html .slides {height:1%;}
+.no-js .slides > li:first-child {display:block;}
+
+
+.featured {margin:0;padding:0;position:relative;zoom:1;min-height:450px;width:600px;}
+.flex-viewport {max-height:2000px; -webkit-transition:all 1s ease; -moz-transition:all 1s ease; transition:all 1s ease;}
+.loading .flex-viewport {max-height:450px;}
+.featured .slides {zoom:1;}
+.carousel li {margin-right:5px}
+
+
+/* Control Nav */
+.featured .flex-control-nav {width:100%; position:absolute; bottom:20px; text-align:center;z-index:1000;}
+.featured .flex-control-nav li {margin:0 10px; display:inline-block; zoom:1; *display:inline;}
+.featured .flex-control-paging li a {width:15px; height:15px; display:block; background:#fff; background:#fff; cursor:pointer; text-indent:-9999px; -webkit-border-radius:20px; -moz-border-radius:20px; -o-border-radius:20px; border-radius:20px; box-shadow:inset 0 0 3px rgba(0,0,0,0.3);}
+.featured .flex-control-paging li a:hover { background:#888; background:#888; }
+.featured .flex-control-paging li a.flex-active {background:#fff; background:#fff; cursor:default; }
+
+.featured .flex-control-thumbs {margin:5px 0 0; position:static; overflow:hidden;}
+.featured .flex-control-thumbs li {width:25%; float:left; margin:0;}
+.featured .flex-control-thumbs img {width:120px;height:120px; display:block; opacity:.7; cursor:pointer;
+                          border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;-o-border-radius:5px;}
+.featured .flex-control-thumbs img:hover {opacity:1;}
+.featured .flex-control-thumbs .flex-active {opacity:1; cursor:default;}
+
+
+/* Direction Nav */
+.featured .flex-direction-nav {display:block;position:absolute;z-index:100;bottom:2px;right:2px;width:59px;height:26px;
+          margin:0;padding:0;opacity:0.8;-webkit-transition:all .3s ease;}
+.featured .flex-direction-nav a {display:block;width:18px;height:18px;padding:4px;position:absolute;
+          border-radius:19px;-moz-border-radius:19px;-webkit-border-radius:19px;-o-border-radius:19px;}
+.featured .flex-direction-nav .flex-next {right:2px;background:url("./arr-trans-r-s.png") no-repeat scroll 10px 7px green;}
+.featured .flex-direction-nav .flex-prev {left:2px;background:url("./arr-trans-l-s.png") no-repeat scroll 8px 7px green;}
+.featured .flex-direction-nav .flex-next:hover {background:url("./arr-trans-r-s.png") no-repeat scroll 10px 7px #00AB90;}
+.featured .flex-direction-nav .flex-prev:hover {background:url("./arr-trans-l-s.png") no-repeat scroll 8px 7px #00AB90;}
+.featured .flex-direction-nav .flex-disabled {opacity:.3!important;filter:alpha(opacity=30);cursor:default;}

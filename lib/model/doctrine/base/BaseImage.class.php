@@ -15,8 +15,9 @@ Doctrine_Manager::getInstance()->bindComponent('Image', 'doctrine');
  * @property string $folder
  * @property string $filename
  * @property integer $sort
- * @property integer $iscover
+ * @property boolean $iscover
  * @property timestamp $created_at
+ * @property integer $nb_love
  * 
  * @method integer   getId()          Returns the current record's "id" value
  * @method string    getObjectType()  Returns the current record's "object_type" value
@@ -26,8 +27,9 @@ Doctrine_Manager::getInstance()->bindComponent('Image', 'doctrine');
  * @method string    getFolder()      Returns the current record's "folder" value
  * @method string    getFilename()    Returns the current record's "filename" value
  * @method integer   getSort()        Returns the current record's "sort" value
- * @method integer   getIscover()     Returns the current record's "iscover" value
+ * @method boolean   getIscover()     Returns the current record's "iscover" value
  * @method timestamp getCreatedAt()   Returns the current record's "created_at" value
+ * @method integer   getNbLove()      Returns the current record's "nb_love" value
  * @method Image     setId()          Sets the current record's "id" value
  * @method Image     setObjectType()  Sets the current record's "object_type" value
  * @method Image     setObjectId()    Sets the current record's "object_id" value
@@ -38,6 +40,7 @@ Doctrine_Manager::getInstance()->bindComponent('Image', 'doctrine');
  * @method Image     setSort()        Sets the current record's "sort" value
  * @method Image     setIscover()     Sets the current record's "iscover" value
  * @method Image     setCreatedAt()   Sets the current record's "created_at" value
+ * @method Image     setNbLove()      Sets the current record's "nb_love" value
  * 
  * @package    vogue
  * @subpackage model
@@ -120,14 +123,13 @@ abstract class BaseImage extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 4,
              ));
-        $this->hasColumn('iscover', 'integer', 1, array(
-             'type' => 'integer',
+        $this->hasColumn('iscover', 'boolean', null, array(
+             'type' => 'boolean',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
-             'length' => 1,
              ));
         $this->hasColumn('created_at', 'timestamp', 25, array(
              'type' => 'timestamp',
@@ -137,6 +139,16 @@ abstract class BaseImage extends sfDoctrineRecord
              'notnull' => true,
              'autoincrement' => false,
              'length' => 25,
+             ));
+        $this->hasColumn('nb_love', 'integer', 4, array(
+             'type' => 'integer',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'default' => '0',
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 4,
              ));
     }
 

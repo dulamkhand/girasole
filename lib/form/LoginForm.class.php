@@ -19,20 +19,22 @@ class LoginForm extends BaseUserForm
   
   public function configure()
   {
-      unset($this['id'],$this['username'],$this['lastname'],$this['firstname'],$this['mobile'],$this['activation_code'],
-            $this['created_at'],$this['updated_at'],$this['logged_at'], $this['is_active'],$this['is_admin']);
+      unset($this['id'],$this['username'],$this['fullname'],$this['lastname'],$this['firstname'],
+            $this['mobile'],$this['activation_code'],$this['avator'],$this['image'],
+            $this['created_at'],$this['updated_at'],$this['logged_at'],$this['ip'],
+            $this['is_active'],$this['is_admin'],$this['about']);
       
       // WIDGETS
-      $this->widgetSchema['email']        = new sfWidgetFormInputText(array(), array('size'=>30));
-      $this->widgetSchema['password']     = new sfWidgetFormInputPassword(array(), array('size'=>30));
+      $this->widgetSchema['email']        = new sfWidgetFormInputText(array(), array('style'=>'width:250px;'));
+      $this->widgetSchema['password']     = new sfWidgetFormInputPassword(array(), array('style'=>'width:250px;'));
       
       // VALIDATORS
-      $this->validatorSchema['email']    = new sfValidatorCallback(array('required'=>true, 'callback' => array($this, 'validateEmail')), array('required'=> 'Required.'));
-      $this->validatorSchema['password'] = new sfValidatorCallback(array('required'=>true, 'callback' => array($this, 'validatePassword')), array('required'=>'Required.'));
+      $this->validatorSchema['email']    = new sfValidatorCallback(array('required'=>true, 'callback' => array($this, 'validateEmail')), array('required'=> 'Имэйл хаягаа оруулна уу.'));
+      $this->validatorSchema['password'] = new sfValidatorCallback(array('required'=>true, 'callback' => array($this, 'validatePassword')), array('required'=>'Нууц үгээ оруулна уу.'));
       
       // LABELS
-      $this->widgetSchema->setLabel('email', 'Email');
-      $this->widgetSchema->setLabel('password', 'Password');
+      $this->widgetSchema->setLabel('email', 'Имэйл хаяг');
+      $this->widgetSchema->setLabel('password', 'Нууц үг');
   }
   
   
@@ -42,7 +44,7 @@ class LoginForm extends BaseUserForm
       if (!$user)
       {
         
-          throw new sfValidatorError($validator, 'Email not found.');
+          throw new sfValidatorError($validator, 'Энэ имэйл хаяг бүртгэлгүй байна. Та бүртгүүлэхийг хүсвэл энд дарна уу.');
       }
       $this->_object = $user;
   
@@ -56,7 +58,7 @@ class LoginForm extends BaseUserForm
       {
           if($user->getPassword() != md5($value))
           {
-              throw new sfValidatorError($validator, 'Invalid password.');
+              throw new sfValidatorError($validator, 'Нууц үг буруу байна.');
           }
       }
       return $value;

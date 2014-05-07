@@ -16,5 +16,18 @@ class Content extends BaseContent
     public function __toString()
     {
         return $this->getTitle();
-    }    
+    }
+	
+	
+    public function getAuthor()
+    {
+        $rs = Doctrine::getTable('User')->doFetchOne(array('id'=>$this->getAuthorId()));
+		    return $rs['username'];
+    }
+	
+    public function getPhotographer()
+    {
+        $rs = Doctrine::getTable('User')->doFetchOne(array('id'=>$this->getPhotographerId()));
+		    return $rs['username'];
+    }
 }

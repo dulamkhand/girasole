@@ -1,4 +1,4 @@
-<?php $images = Doctrine::getTable('Image')->doFetchArray(array('objectType'=>$objectType, 'objectId'=>$objectId))?>
+<?php $images = Doctrine::getTable('Image')->doFetchArray(array('objectType'=>$objectType, 'objectId'=>$objectId, 'limit'=>30))?>
 
 <?php foreach ($images as $image):?>
   <?php echo image_tag('/uploads/'.$image['folder'].'/'.$image['filename'], array())?>

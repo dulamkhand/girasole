@@ -1,8 +1,9 @@
+<?php $images = Doctrine::getTable('Image')->doFetchArray(array('objectType'=>$objectType, 'objectId'=>$objectId, 'limit'=>30))?>
+<?php if(sizeof($images)):?>
+
 <?php use_stylesheet('movingboxes.css') ?>
 <?php use_javascript('movingboxes/movingboxes.min.js') ?>
 <?php use_javascript('movingboxes/movingboxes.init.js') ?>
-
-<?php $images = Doctrine::getTable('Image')->doFetchArray(array('objectType'=>$objectType, 'objectId'=>$objectId))?>
 
 <div id="slider-two" class="align-center">
   <?php foreach ($images as $image):?>
@@ -16,4 +17,4 @@
   <?php endforeach;?>
 </div>
 
-<br clear="all">
+<?php endif?>

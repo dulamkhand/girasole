@@ -12,6 +12,10 @@ class SubscriberForm extends BaseSubscriberForm
 {
   public function configure()
   {
-    
+      // WIDGETS
+      $this->widgetSchema['email']        = new sfWidgetFormInputText(array(), array());
+
+      // VALIDATORS
+      $this->validatorSchema['email']       = new sfValidatorEmail(array('required'=>false), array());   		 
   }
 }

@@ -5,10 +5,10 @@ all:
   doctrine:
     class: sfDoctrineDatabase
     param:      
-      #dsn:      mysql:host=202.179.8.29;dbname=handaa
-      #username: handaa
-      #password: uuree
+      #dsn:      mysql:host=localhost;dbname=urinesse_girasole
+      #username: urinesse_handaa
+      #password: urinesse@handaa2013
       
-      dsn:      mysql:host=localhost;dbname=girasole
+      dsn:      mysql:host=localhost;dbname=ow
       username: root
       password: 

@@ -1,55 +1,44 @@
 <form action="<?php echo url_for('user/index')?>" method="GET">
-    <b>Keyword</b>&nbsp; <input type="text" value="<?php echo $sf_params->get('keyword')?>" name="keyword" id="keyword" size="40" style="padding:6px;"/>
-    <input type="submit" value="Submit" />
+    <?php include_partial('global/search', array());?>
 </form>
 
-<br clear="all">
-
-<a href="<?php echo url_for('user/new')?>"><?php echo image_tag('icons/with-shadows/badge-square-plus-24.png', array())?></a>
 <br clear="all">
 <br clear="all">
 <table width="100%">
   <thead>
     <tr>
       <th>#</th>
-      <th>Firstname</th>
-      <th>Lastname</th>
       <th>Email</th>      
+      <th>Fullname</th>      
       <th>Mobile</th>
+      <th>Avator</th>
       <th>Date</th>
-      <th>Manage</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
-    <?php $i=0; foreach ($pager->getResults() as $user): ?>
-    <tr>
-      <td><?php echo ++$i?></td>
-      <td><?php echo $user->getFirstname() ?></td>
-      <td><?php echo $user->getLastname() ?></td>
-      <td><?php echo $user->getEmail() ?></td>
-      <td><?php echo $user->getMobile() ?></td>
+    <?php $i=0; foreach ($pager->getResults() as $rs): ?>
+    <tr <?php if($i%2 != 0) echo 'class="odd"'?> style="background:<?php if(!$rs->getIsActive()) echo '#dedede;'?>">
+      <td><?php echo ++$i?></td>      
+      <td><?php echo $rs->getEmail() ?></td>
+      <td><?php echo $rs->getFullname() ?></td>
+      <td><?php echo $rs->getMobile() ?></td>
+      <td><?php echo image_tag('/uploads/user/100t-'.$rs->getAvator(), array()) ?></td>
       <td nowrap>
-        <b>Logged at:</b> <?php echo $user->getLoggedAt() ?><br>
-        <b>Updated at:</b> <?php echo $user->getUpdatedAt() ?><br>
-        <b>Created at:</b> <?php echo $user->getCreatedAt() ?>
+        <b>Logged at:</b> <?php echo $rs->getLoggedAt() ?><br>
+        <b>Updated at:</b> <?php echo $rs->getUpdatedAt() ?><br>
+        <b>Created at:</b> <?php echo $rs->getCreatedAt() ?><br>
+        <?php if($rs->getIsActive()) echo image_tag('icons/valid.png', array('align'=>'absmiddle')) ?> Active<br>
+        <?php if($rs->getIsAdmin()) echo image_tag('icons/valid.png', array('align'=>'absmiddle')) ?> Admin
       </td>
       <td nowrap>
-        <?php if($user->getIsActive()==1):?>
-          <a href="<?php echo url_for('user/active?id='.$user->getId().'&status=0') ?>" title="Идэвхгүй болгох" style="text-decoration:none;">
-              <?php echo image_tag('icons/with-shadows/badge-square-minus-24.png', array())?>
-          </a>
+        <?php if($rs->getIsActive()==1):?>
+          <a href="<?php echo url_for('user/activate?id='.$rs->getId().'&cmd=0') ?>" class="action">Dectivate</a>
         <?php else:?>
-          <a href="<?php echo url_for('user/active?id='.$user->getId().'&status=1') ?>" title="Идэвхжүүлэх" style="text-decoration:none;">
-              <?php echo image_tag('icons/with-shadows/badge-square-check-24.png', array())?>
-          </a>
+          <a href="<?php echo url_for('user/activate?id='.$rs->getId().'&cmd=1') ?>" class="action">Activate</a>
         <?php endif;?>
-        
-        <a href="<?php echo url_for('user/edit?id='.$user->getId())?>" title="Засварлах" style="text-decoration:none;">
-            <?php echo image_tag('icons/with-shadows/page-pencil-24.png', array())?>
-        </a>
-        <a onclick="return confirm('Are you sure?')" href="<?php echo url_for('user/delete?id='.$user->getId())?>" title="Устгах" style="text-decoration:none;">
-            <?php echo image_tag('icons/with-shadows/cross-24.png', array())?>
-        </a>
+        <br clear="all">
+        <?php include_partial('global/actions', array('module'=>'user', 'id'=>$rs->getId()));?>
       </td>
     </tr>
     <?php endforeach; ?>

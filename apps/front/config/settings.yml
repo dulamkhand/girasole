@@ -5,6 +5,7 @@ prod:
   .settings:
     no_script_name:         true
     logging_enabled:        false
+    suffix:                 .htm
 
 dev:
   .settings:
@@ -44,11 +45,11 @@ all:
     
     enabled_modules:        [default, sfCryptoCaptcha]
     
-    secure_module:          user
-    secure_action:          login
+    secure_module:          main
+    secure_action:          404
 
     error_404_module:       main
-    error_404_action:       default
+    error_404_action:       404
 
-    login_module:           user
-    login_action:           login
+    login_module:           main
+    login_action:           404

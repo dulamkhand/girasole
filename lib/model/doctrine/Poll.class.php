@@ -13,4 +13,28 @@
 class Poll extends BasePoll
 {
 
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
+    
+    public function getTotalPercent()
+    {
+        $rss = $this->getOptions();
+        $total = 0;
+        foreach ($rss as $rs){
+            $total += $rs['nb_vote'];
+        }
+        return $total;
+    }
+    
+    public function getContent() {
+        return Doctrine::getTable('Content')->doFetchOne(array('id'=>$this->getObjectId()));
+    }
+
+    public function getOptions()
+    {
+        return Doctrine::getTable('PollOption')->doFetchArray(array('pollId'=>$this->getId()));
+    }
+
 }

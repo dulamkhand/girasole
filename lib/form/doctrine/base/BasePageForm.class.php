@@ -23,7 +23,8 @@ abstract class BasePageForm extends BaseFormDoctrine
       'content'     => new sfWidgetFormTextarea(),
       'sort'        => new sfWidgetFormInputText(),
       'created_at'  => new sfWidgetFormDateTime(),
-      'is_active'   => new sfWidgetFormInputText(),
+      'is_active'   => new sfWidgetFormInputCheckbox(),
+      'nb_love'     => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
@@ -35,7 +36,8 @@ abstract class BasePageForm extends BaseFormDoctrine
       'content'     => new sfValidatorString(),
       'sort'        => new sfValidatorInteger(),
       'created_at'  => new sfValidatorDateTime(),
-      'is_active'   => new sfValidatorInteger(),
+      'is_active'   => new sfValidatorBoolean(),
+      'nb_love'     => new sfValidatorInteger(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('page[%s]');

@@ -10,22 +10,26 @@
  */
 class bannerActions extends sfActions
 {
+  function preExecute() {
+      $this->forwardUnless($this->getUser()->hasCredential('banner'), 'admin', 'perm');  
+  }
+  
   public function executeIndex(sfWebRequest $request)
   {
-    $this->position = $position = $request->getParameter('position');
-    $this->pager = Doctrine::getTable('Banner')->getPager(array('position'=>$position), $request->getParameter('page'));
+      $this->position = $position = $request->getParameter('position');
+      $this->pager = Doctrine::getTable('Banner')->getPager(array('position'=>$position), $request->getParameter('page'));
   }
   
   
-  public function executeActive(sfWebRequest $request)
+  public function executeActivate(sfWebRequest $request)
   {
-    $banner = Doctrine::getTable('Banner')->find($request->getParameter('id'));
-    $this->forward404Unless($banner);
+    $this->forward404Unless($banner = Doctrine::getTable('Banner')->find($request->getParameter('id')));
+    $this->forward404Unless(in_array($cmd = $request->getParameter('cmd'), array(0,1)));
 
-    $banner->setIsActive($request->getParameter('status'));
+    $banner->setIsActive($cmd);
     $banner->save();
+    $this->getUser()->setFlash('flash', 'Successfully saved.', true);
 
-    $this->getUser()->setFlash('success', 'Амжилттай хадгалагдлаа.', true);
     $this->redirect('banner/index');
   }
   
@@ -71,7 +75,7 @@ class bannerActions extends sfActions
     try {
       $banner->delete();
       
-      $this->getUser()->setFlash('success', 'Successfully deleted.', true);
+      $this->getUser()->setFlash('flash', 'Successfully deleted.', true);
     }catch (Exception $e){}
     
     $this->redirect('banner/index');
@@ -80,20 +84,21 @@ class bannerActions extends sfActions
 
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
-    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-    if ($form->isValid())
-    {
-      $banner = $form->save();
-
-      $ext = myTools::getFileExtension($banner->getPath());
-      $banner->setExt($ext);
-      $banner->setIsActive(1);
-      $banner->save();
-
-      $this->getUser()->setFlash('success', 'Successfully saved.', true);
-      
-      $this->redirect('banner/index');
-    }
+      $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+      if ($form->isValid())
+      {
+          $banner = $form->save();
+    
+          $ext = myTools::getFileExtension($banner->getPath());
+          $banner->setExt($ext);
+          $banner->setIsActive(1);
+          $banner->setRoute(myTools::slugify(myTools::mn2en($banner->getPath())));
+          $banner->save();
+    
+          $this->getUser()->setFlash('flash', 'Successfully saved.', true);
+          
+          $this->redirect('banner/index');
+      }
   }
 
   

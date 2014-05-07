@@ -1,4 +1,4 @@
-<?php $images = Doctrine::getTable('Image')->doFetchArray(array('objectType'=>$objectType, 'objectId'=>$objectId))?>
+<?php $images = Doctrine::getTable('Image')->doFetchArray(array('objectType'=>$objectType, 'objectId'=>$objectId, 'limit'=>30))?>
 
 <?php foreach ($images as $image):?>
 <div style="width:310px;height:550px;float:left;margin:0 10px 10px 0;overflow:hidden;">

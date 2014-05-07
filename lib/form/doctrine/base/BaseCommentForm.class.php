@@ -20,9 +20,12 @@ abstract class BaseCommentForm extends BaseFormDoctrine
       'object_id'   => new sfWidgetFormInputText(),
       'created_at'  => new sfWidgetFormDateTime(),
       'user_id'     => new sfWidgetFormInputText(),
+      'avator'      => new sfWidgetFormInputText(),
       'ip_address'  => new sfWidgetFormInputText(),
       'name'        => new sfWidgetFormInputText(),
       'text'        => new sfWidgetFormTextarea(),
+      'nb_love'     => new sfWidgetFormInputText(),
+      'deactivated' => new sfWidgetFormInputCheckbox(),
     ));
 
     $this->setValidators(array(
@@ -31,9 +34,12 @@ abstract class BaseCommentForm extends BaseFormDoctrine
       'object_id'   => new sfValidatorInteger(),
       'created_at'  => new sfValidatorDateTime(),
       'user_id'     => new sfValidatorInteger(),
+      'avator'      => new sfValidatorString(array('max_length' => 255)),
       'ip_address'  => new sfValidatorString(array('max_length' => 15)),
       'name'        => new sfValidatorString(array('max_length' => 255)),
       'text'        => new sfValidatorString(),
+      'nb_love'     => new sfValidatorInteger(array('required' => false)),
+      'deactivated' => new sfValidatorBoolean(),
     ));
 
     $this->widgetSchema->setNameFormat('comment[%s]');

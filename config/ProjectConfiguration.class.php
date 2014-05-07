@@ -9,8 +9,8 @@ class ProjectConfiguration extends sfProjectConfiguration
   public function setup()
   {
       $this->enablePlugins('sfDoctrinePlugin', 'sfFormExtraPlugin', 'sfCryptoCaptchaPlugin', 'sfThumbnailPlugin');
-      //sfConfig::set('sf_web_dir', '/home/grandqh5/public_html');
-      //sfConfig::set('sf_upload_dir', '/home/grandqh5/public_html/uploads');
+      //sfConfig::set('sf_web_dir', '/home1/urinesse/public_html/girasole');
+      //sfConfig::set('sf_upload_dir', '/home1/urinesse/public_html/girasole/uploads');
   }
 
 }
