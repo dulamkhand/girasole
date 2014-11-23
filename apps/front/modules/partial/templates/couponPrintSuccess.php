@@ -1,0 +1,1 @@
+<?php include_partial("partial/coupon", array('rs'=>$rs, 'code'=>$code));?>

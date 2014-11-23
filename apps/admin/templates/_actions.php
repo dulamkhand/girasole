@@ -1,0 +1,2 @@
+<a href="<?php echo url_for($module.'/edit?id='.$id)?>" title="Edit" class="action">Edit</a> | 
+<a onclick="return confirm('Are you sure?')" href="<?php echo url_for($module.'/delete?id='.$id)?>" title="Delete" class="action">Delete</a>
