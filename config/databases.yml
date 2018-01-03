@@ -4,11 +4,7 @@
 all:
   doctrine:
     class: sfDoctrineDatabase
-    param:      
-      #dsn:      mysql:host=localhost;dbname=urinesse_girasole
-      #username: urinesse_handaa
-      #password: urinesse@handaa2013
-      
+    param:     
       dsn:      mysql:host=localhost;dbname=ow
       username: root
       password: 
